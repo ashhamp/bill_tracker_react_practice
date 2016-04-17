@@ -6,7 +6,7 @@ require 'rails_helper'
 
 feature "user authentication" do
 
-  scenario "user enters valid data to create account" do
+  scenario "prospective user enters valid data to create account" do
     visit new_user_registration_path
 
     fill_in "Username", with: "UserMcUser"
@@ -19,7 +19,7 @@ feature "user authentication" do
     expect(page).to have_content "Welcome! You have signed up successfully."
   end
 
-  scenario "user enters invalid data to create account" do
+  scenario "prospective user enters invalid data to create account" do
     visit new_user_registration_path
 
     fill_in "Username", with: "UserMcUser"

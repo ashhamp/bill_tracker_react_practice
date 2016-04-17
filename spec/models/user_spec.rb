@@ -23,14 +23,13 @@ RSpec.describe User, type: :model do
     it do
       is_expected.to_not have_valid(:email).when(
         'fail',
-         123,
+        123,
         'five.com'
       )
     end
 
-
     it { is_expected.to have_valid(:password).when('IamaPAssword') }
-    
+
     it do
       is_expected.to_not have_valid(:password).when(
         nil,

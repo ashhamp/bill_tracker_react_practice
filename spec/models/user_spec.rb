@@ -11,25 +11,32 @@ RSpec.describe User, type: :model do
 
     it { is_expected.to validate_presence_of(:email) }
     it { is_expected.to validate_uniqueness_of(:email) }
-    it { is_expected.to have_valid(:email).when(
+
+    it do
+      is_expected.to have_valid(:email).when(
         'test@test.com',
         'test+spam@gmail.com',
         'hello@hello.net'
       )
-    }
-    it { is_expected.to_not have_valid(:email).when(
+    end
+
+    it do
+      is_expected.to_not have_valid(:email).when(
         'fail',
          123,
         'five.com'
       )
-    }
+    end
+
 
     it { is_expected.to have_valid(:password).when('IamaPAssword') }
-    it { is_expected.to_not have_valid(:password).when(
+    
+    it do
+      is_expected.to_not have_valid(:password).when(
         nil,
         "",
         "small"
       )
-    }
+    end
   end
 end

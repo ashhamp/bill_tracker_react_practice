@@ -33,11 +33,10 @@ feature "user authentication" do
     expect(page).to have_content "Email can't be blank"
   end
 
-  scenario "an authenitcated user does not get redirected to the sign up page" do
+  scenario "authenticated user is not redirected to sign up page" do
 
     sign_in(user1)
     visit root_path
-    
     expect(page).to_not have_content "Sign Up"
   end
 end

@@ -24,7 +24,8 @@ RSpec.describe User, type: :model do
       is_expected.to_not have_valid(:email).when(
         'fail',
         123,
-        'five.com'
+        'five.com',
+        "hello@"
       )
     end
 

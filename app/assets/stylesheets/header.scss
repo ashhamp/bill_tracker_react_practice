@@ -1,9 +1,12 @@
 $peach: #1a1a1a;
 $white: #ffffff;
 $prettyblue: #33cccc;
+$lightgreen: #bbff99;
 
 #logo {
-  color: $prettyblue;
+  position: absolute;;
+  bottom: 0;
+  left: 5px;
   font-family: 'Shadows Into Light', cursive;
   font-size: 40px;
   font-weight: bold;
@@ -14,4 +17,21 @@ $prettyblue: #33cccc;
   background-color: $white;
   height: 70px;
   margin: 0;
+}
+
+
+.circle-header {
+
+  background-color: $lightgreen;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  -webkit-filter: blur(15px);
+
+
+}
+
+.left-header {
+  position: relative;
+  padding-top: 10px;
 }

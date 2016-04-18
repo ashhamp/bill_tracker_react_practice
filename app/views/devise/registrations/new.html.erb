@@ -27,10 +27,11 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Create Account" %>
+      <%= f.submit "Create Account", class: "button" %>
     </div>
   <% end %>
 
-  <%= render "devise/shared/links" %>
-
+  <div class="different-color-links">
+    <%= render "devise/shared/links" %>
+  </div>
 </div>

@@ -45,6 +45,7 @@
 $seafoam: #4dffdb;
 $orange: #ff6600;
 $pinkish: #ff6666;
+$prettyblue: #33cccc;
 
 
 // 1. Global
@@ -54,7 +55,7 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: $pinkish,
+  primary: $prettyblue,
   secondary: #777,
   success: #3adb76,
   warning: #ffae00,

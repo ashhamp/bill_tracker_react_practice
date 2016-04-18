@@ -13,10 +13,12 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
+ *= require jquery-ui/datepicker
  */
+
  $brightgreen: #4dff4d;
  $lightgreen: #bbff99;
+ $prettyblue: #33cccc;
 
 body {
   background: url("rainy4.jpg") no-repeat center center fixed;
@@ -55,4 +57,8 @@ body {
 #sign-up-div {
   margin-top: 150px;
   text-align: center;
+}
+
+.hidden {
+  display: none;
 }

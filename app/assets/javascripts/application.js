@@ -15,5 +15,10 @@
 //= require foundation
 //= require_tree .
 //= blur
+//= require jquery-ui/datepicker
 
-$(function(){ $(document).foundation(); });
+$(function(){ $(document).foundation();
+  $( "#add-bill-button" ).click(function() {
+    $( "#new-bill-form" ).toggle();
+  });
+ });

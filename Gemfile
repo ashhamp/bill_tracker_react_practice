@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
 gem 'devise'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   gem 'pry-rails'
@@ -23,6 +24,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'selenium-webdriver'
 end
 
 group :test do

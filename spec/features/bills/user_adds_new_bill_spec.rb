@@ -1,0 +1,61 @@
+require 'rails_helper'
+
+feature "authenticated user adds a new bill" do
+  let!(:user1) { FactoryGirl.create(:user) }
+  let(:bill1) { FactoryGirl.build(:bill) }
+
+  scenario 'authenticated user successfully adds a bill' do
+
+    sign_in(user1)
+
+    expect(page).to_not have_content bill1.nickname
+
+    click_on "Add Bill"
+    fill_in "Nickname", with: bill1.nickname
+    fill_in "Url", with: bill1.url
+    fill_in "datepicker", with: "2016/09/01"
+    fill_in "Recurring Amount", with: "100.45"
+    click_button "Submit"
+
+    expect(page).to have_content bill1.nickname
+    expect(page).to have_content bill1.next_due_date
+    expect(page).to have_content bill1.recurring_amt
+  end
+
+  scenario 'authenticated user tries to submit a blank form' do
+
+    sign_in(user1)
+
+    click_on "Add Bill"
+    click_on "Submit"
+
+    expect(page).to have_content "Nickname can't be blank"
+    expect(page).to have_content "Start due date can't be blank"
+  end
+
+  scenario 'authenticated user tries to submit an incomplete form' do
+
+    sign_in(user1)
+
+    click_link "Add Bill"
+    fill_in "Nickname", with: bill1.nickname
+    fill_in "Url", with: bill1.url
+    click_button "Submit"
+
+    expect(page).to have_content "Start due date can't be blank"
+  end
+
+  scenario 'authenticated user tries to submit an invalid start date' do
+
+    sign_in(user1)
+
+    click_link "Add Bill"
+    fill_in "Nickname", with: bill1.nickname
+    fill_in "Url", with: bill1.url
+    fill_in "datepicker", with: "2014/09/01"
+    fill_in "Recurring Amount", with: "100.45"
+    click_button "Submit"
+
+    expect(page).to have_content "Start due date can't be in the past"
+  end
+end

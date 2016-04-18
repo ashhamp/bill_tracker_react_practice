@@ -1,9 +1,31 @@
-<h4>Bills:</h4>
-
-<ul>
-  <% @bills.each do |bill| %>
-  <li>
-    <%= bill.nickname %>
-  </li>
-  <% end %>
-</ul>
+<div class="small-12 columns bill-index">
+  <div class="small-12 medium-6 columns bill-list">
+    <h4>Bills:</h4>
+    <div class="">
+      <ul>
+        <% @bills.each do |bill| %>
+          <div class="small-12 columns">
+            <li class="in-line">
+              <%= bill.nickname %>
+            </li>
+            <li class="in-line">
+              <%= link_to "web", bill.url %>
+            </li>
+            <li class="in-line">
+              <%= bill.next_due_date %>
+            </li>
+            <li class="in-line">
+              <%= bill.recurring_amt %>
+            </li>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+    <div class="">
+      <%= link_to "Add Bill", "#", class: :button, id: "add-bill-button" %>
+    </div>
+    <div class="small-12 columns hidden" id="new-bill-form">
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>

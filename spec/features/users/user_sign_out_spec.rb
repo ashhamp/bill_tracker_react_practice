@@ -10,8 +10,6 @@ feature "user signs out" do
   scenario "user enters valid sign in information and then signs out" do
     sign_in(user1)
     click_on("Sign Out")
-    expect(page).to have_content(
-      "You need to sign in or sign up before continuing"
-    )
+    expect(page).to have_content("Signed out successfully")
   end
 end

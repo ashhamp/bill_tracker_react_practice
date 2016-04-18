@@ -17,9 +17,57 @@
  */
 
 body {
-  background: url("rainy-windshield.jpg") no-repeat center center fixed;
+  background: url("rainy4.jpg") no-repeat center center fixed;
   background-color: none;
   background-size: cover;
   min-height: 100%;
   min-width: 100%;
+  // -webkit-filter: blur(1px)
+}
+
+
+
+#main-sign-up {
+
+  position: fixed;
+  top: 40%;
+  left: 40%;
+  border: 8px solid white;
+  border-radius: 20px;
+  font-size: 40px;
+  padding: 20px;
+  -webkit-filter: blur(3px)
+}
+
+#flash-notices {
+  height: 40px;
+}
+
+#logo {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 40px;
+  font-weight: bold;
+  color: #1a1a1a;
+  letter-spacing: 5px;
+}
+
+.topbar {
+  background-color: white;
+  margin: 0;
+  height: 70px;
+
+}
+
+.margin-devise {
+  margin-bottom: 50px;
+}
+
+#sign-up-hover {
+  color: #4dff4d;
+  font-family: 'Bitter', serif;
+  font-weight: bold;
+}
+
+#sign-up-hover:hover {
+  color: #bbff99;
 }

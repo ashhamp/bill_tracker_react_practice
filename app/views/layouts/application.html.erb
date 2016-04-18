@@ -7,40 +7,50 @@
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
     <%= stylesheet_link_tag    "application" %>
+    <link href='https://fonts.googleapis.com/css?family=Geostar|Geostar+Fill|Macondo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <div class="small-12 columns">
-      <div class="small-9 medium-4 columns">
-        <h2>Defog</h2>
+    <div class="topbar">
+      <div class="small-12 columns">
+        <div class="small-9 medium-4 columns">
+          <div id="logo">
+            <%= link_to "Defogger", root_path %>
+          </div>
+        </div>
+        <% if !user_signed_in?%>
+          <div class="small-3 columns">
+            <%= link_to "Sign In", new_user_session_path %>
+          </div>
+          <div class="small-3 columns">
+            <%= link_to "Sign Up", new_user_registration_path %>
+          </div>
+        <% else %>
+          <div class="small-3 columns">
+              <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+          </div>
+          <div class="small-3 columns">
+              <%= link_to "Update Account", edit_user_registration_path %>
+          </div>
+        <% end %>
       </div>
-      <% if !user_signed_in?%>
-        <div class="small-3 columns">
-          <%= link_to "Sign In", new_user_session_path %>
-        </div>
-        <div class="small-3 columns">
-          <%= link_to "Sign Up", new_user_registration_path %>
-        </div>
-      <% else %>
-        <div class="small-3 columns">
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-        </div>
-        <div class="small-3 columns">
-            <%= link_to "Update Account", edit_user_registration_path %>
-        </div>
-      <% end %>
     </div>
-    <div class="small-12 columns">
+    <div class="row small-12 columns" id="flash-notices">
       <% flash.each do |name, msg| %>
         <% if msg.is_a?(String) %>
           <%= content_tag :div, msg, :class => "flash_#{name}" %>
         <% end %>
       <% end %>
     </div>
-
-    <%= yield %>
-
+    <div class="small-12 columns">
+      <%= yield %>
+    </div>
   </body>
 </html>

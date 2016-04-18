@@ -15,11 +15,44 @@
  *= require foundation_and_overrides
 
  */
+ $brightgreen: #4dff4d;
+ $lightgreen: #bbff99;
 
 body {
-  background: url("rainy-windshield.jpg") no-repeat center center fixed;
+  background: url("rainy4.jpg") no-repeat center center fixed;
   background-color: none;
   background-size: cover;
   min-height: 100%;
   min-width: 100%;
+}
+
+#main-sign-up {
+  border: 8px solid white;
+  border-radius: 20px;
+  -webkit-filter: blur(3px);
+  font-size: 40px;
+  padding: 20px;
+}
+
+#flash-notices {
+  height: 40px;
+}
+
+.margin-devise {
+  margin-bottom: 50px;
+}
+
+#sign-up-hover {
+  color: $brightgreen;
+  font-family: 'Bitter', serif;
+  font-weight: bold;
+}
+
+#sign-up-hover:hover {
+  color: $lightgreen;
+}
+
+#sign-up-div {
+  margin-top: 150px;
+  text-align: center;
 }

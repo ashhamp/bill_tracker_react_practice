@@ -1,1 +1,10 @@
-<h1>Bill Tracker Home Page</h1>
+
+<h4>Bills:</h4>
+
+<ul>
+  <% @bills.each do |bill| %>
+  <li>
+    <%= bill.nickname %>
+  </li>
+  <% end %>
+</ul>

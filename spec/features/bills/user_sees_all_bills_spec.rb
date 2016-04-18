@@ -19,6 +19,8 @@ feature "authenticated user sees a list of their bills" do
 
   scenario 'unauthenticated user tries to see list of their bills' do
     visit bills_path
-    expect(page).to have_content "You need to sign in or sign up before continuing"
+    expect(page).to have_content(
+      "You need to sign in or sign up before continuing"
+    )
   end
 end

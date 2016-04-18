@@ -8,10 +8,12 @@ class Bill < ActiveRecord::Base
   validate :start_due_date_cannot_be_in_the_past
   validate :start_due_date_is_not_fixnum
 
-
   def start_due_date_is_not_fixnum
     if start_due_date.present? && start_due_date.is_a?(Fixnum)
-      errors.add(:start_due_date, "must be a valid date format: yyyy/mm/dd or mm/dd/yyyy")
+      errors.add(
+        :start_due_date,
+        "must be a valid date format: yyyy/mm/dd or mm/dd/yyyy"
+      )
     end
   end
 

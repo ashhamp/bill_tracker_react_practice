@@ -5,11 +5,11 @@ RSpec.describe Bill, type: :model do
     let!(:user1) { FactoryGirl.create(:user) }
     let!(:user2) { FactoryGirl.create(:user) }
 
-    let!(:bill1) { FactoryGirl.create(
+    let!(:bill1) do FactoryGirl.create(
       :bill,
       nickname: "hello",
       user: user1)
-    }
+    end
 
     it { is_expected.to validate_presence_of(:nickname) }
     it { is_expected.to have_valid(:nickname).when("Visa", "RE Tax") }

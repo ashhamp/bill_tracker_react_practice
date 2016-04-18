@@ -29,9 +29,9 @@ body {
 
 #main-sign-up {
 
-  position: fixed;
-  top: 40%;
-  left: 40%;
+  // position: fixed;
+  // top: 40%;
+  // left: 40%;
   border: 8px solid white;
   border-radius: 20px;
   font-size: 40px;
@@ -70,4 +70,9 @@ body {
 
 #sign-up-hover:hover {
   color: #bbff99;
+}
+
+#sign-up-div {
+  margin-top: 150px;
+  text-align: center;
 }

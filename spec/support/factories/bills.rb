@@ -8,6 +8,7 @@ FactoryGirl.define do
     nickname
     url "https://www.creditcard.com"
     start_due_date "2016/05/16"
+    next_due_date "2016/05/16"
     association :user, factory: :user
   end
 end

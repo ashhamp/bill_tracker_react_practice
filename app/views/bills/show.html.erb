@@ -1,0 +1,55 @@
+<div class="small-12 medium-9 large-6 medium-centered columns">
+  <div class="small-12 columns bill-show-wrapper">
+    <div class="small-12 columns bill-name-centered">
+      <h3><%= @bill.nickname %></h3>
+    </div>
+    <div class="small-12 columns">
+      <div class="small-6 columns">
+        Starting Bill Date:
+      </div>
+      <div class="small-6 columns">
+        <%= @bill.start_due_date.strftime('%D') %>
+      </div>
+    </div>
+    <div class="small-12 columns">
+      <div class="small-6 columns">
+        Next Due Date:
+      </div>
+      <div class="small-6 columns">
+        <% if @bill.next_due_date.present? %>
+          <%= @bill.next_due_date.strftime('%D') %>
+        <% else %>
+          N/A
+        <% end %>
+      </div>
+    </div>
+    <div class="small-12 columns">
+      <div class="small-6 columns">
+        Recurring Payment:
+      </div>
+      <div class="small-6 columns">
+        <% if @bill.recurring_amt.present? %>
+          <%= number_to_currency(@bill.recurring_amt) %>
+        <% else %>
+          N/A
+        <% end %>
+      </div>
+    </div>
+    <div class="small-12 columns">
+      <div class="small-6 columns">
+        Web site:
+      </div>
+      <div class="small-6 columns">
+        <% if @bill.url.present? %>
+          <%= link_to @bill.url, @bill.url %>
+        <% else %>
+          N/A
+        <% end %>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="small-12 columns back-button">
+    <%= link_to "Back", bills_path, class: "button" %>
+  </div>
+</div>

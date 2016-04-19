@@ -10,21 +10,22 @@ $lightgreen: #bbff99;
 }
 
 .bill-padding {
-  padding: 10px;
   background-color: $white;
   border-radius: 15px;
   opacity: 0.9;
+  padding: 10px;
 }
 
 .mini-bills {
-  margin-top: 5px;
   margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .index-bill-name {
-  text-align: center;
   font-weight: bold;
   margin-bottom: 5px;
+  text-align: center;
+
 }
 
 .right-aligned {

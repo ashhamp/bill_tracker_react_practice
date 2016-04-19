@@ -3,9 +3,10 @@ $white: #ffffff;
 $prettyblue: #33cccc;
 $lightgreen: #bbff99;
 $darkblue: #003333;
+$darkgrey: #4d4d4d;
 
 #logo {
-  position: absolute;;
+  position: absolute;
   bottom: -4px;
   left: 5px;
   font-family: 'Shadows Into Light', cursive;
@@ -14,12 +15,12 @@ $darkblue: #003333;
   letter-spacing: 5px;
 }
 
-#logo a {
-  color: #4d4d4d;
+.header-color {
+  color: $darkgrey;
 }
 
 .top-bar-right {
-  padding-top:  25px;
+  padding-top: 25px;
 }
 
 .sticky-top {
@@ -29,19 +30,14 @@ $darkblue: #003333;
 
 .circle-header {
   background-color: $lightgreen;
-  height: 50px;
-  width: 50px;
   border-radius: 50%;
   -webkit-filter: blur(15px);
-
+  height: 50px;
   margin-left: 17px;
-}
-
-li.menu-test {
-  padding-left: 0;
+  width: 50px;
 }
 
 .left-header {
-  position: relative;
   padding-top: 10px;
+  position: relative;
 }

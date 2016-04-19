@@ -10,9 +10,19 @@ $white: #ffffff;
   background-color: $white;
   border-radius: 15px;
   margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
   opacity: 0.9;
 }
 
 .back-button {
   margin-top: 10px;
+}
+
+.centered {
+  text-align: center;
+}
+
+.button-wrapper {
+  margin-top: 20px;
 }

@@ -25,6 +25,18 @@ class BillsController < ApplicationController
     @bill = Bill.find(params[:id])
   end
 
+  def update
+    @bill = Bill.find(params[:id])
+
+    if @bill.update_attributes(bill_params)
+      flash[:notice] = "Bill updated successfully!"
+      redirect_to bill_path(@bill)
+    else
+      flash[:error] = @bill.errors.full_messages.join(". ")
+      render :show
+    end
+  end
+
   private
 
   def bill_params
@@ -34,6 +46,7 @@ class BillsController < ApplicationController
       :start_due_date,
       :recurring_amt,
       :one_time,
+      :next_due_date,
     ).merge(user: current_user)
   end
 end

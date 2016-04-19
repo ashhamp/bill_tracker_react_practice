@@ -2,7 +2,7 @@ class BillsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @bills = Bill.where(user: current_user)
+    @bills = Bill.where(user: current_user).order(:next_due_date)
     @bill = Bill.new
   end
 
@@ -19,6 +19,10 @@ class BillsController < ApplicationController
       flash[:error] = @bill.errors.full_messages.join(". ")
       render :index
     end
+  end
+
+  def show
+    @bill = Bill.find(params[:id])
   end
 
   private

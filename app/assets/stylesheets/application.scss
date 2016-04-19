@@ -19,6 +19,9 @@
 $brightgreen: #4dff4d;
 $lightgreen: #bbff99;
 $prettyblue: #33cccc;
+$white: #ffffff;
+$darkblue: #003333;
+$darkgrey: #4d4d4d;
 
 body {
   background: url("rainy4.jpg") no-repeat center center fixed;
@@ -41,7 +44,14 @@ body {
 }
 
 .margin-devise {
-  margin-bottom: 50px;
+  background-color: $white;
+  border-left: solid 5px $darkgrey;
+  border-radius: 25px;
+  border-right: solid 5px $darkgrey;
+  margin-bottom: 90px;
+  margin-top: 50px;
+  opacity: 0.9;
+  padding: 10px;
 }
 
 #sign-up-hover {
@@ -61,4 +71,8 @@ body {
 
 .hidden {
   display: none;
+}
+
+label {
+  color: $darkblue;
 }

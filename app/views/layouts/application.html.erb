@@ -7,39 +7,41 @@
     <title><%= content_for?(:title) ? yield(:title) : "defogger" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <link href='https://fonts.googleapis.com/css?family=Geostar|Geostar+Fill|Macondo' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <div class="topbar">
-      <div class="small-12 columns">
-        <div class="small-9 medium-4 columns">
-          <div id="logo">
-            <%= link_to "Defogger", root_path %>
+    <div class="small-12 columns sticky-top" data-sticky-container>
+      <div class="small-12 columns sticky-top" data-sticky data-sticky-on="small" data-margin-top="0">
+        <div class="small-12 columns top-bar">
+          <div class="top-bar-left">
+            <ul class="menu">
+              <div class="left-header">
+                <div class="circle-header">
+                </div>
+                <div id="logo">
+                  <li class="menu-text">
+                    <%= link_to "Defogger", root_path, class: "header-color"%>
+                  </li>
+                </div>
+              </div>
+            </ul>
+          </div>
+          <div class="top-bar-right">
+            <ul class="menu">
+              <% if !user_signed_in?%>
+                <li><%= link_to "Sign In", new_user_session_path %></li>
+                <li><%= link_to "Sign Up", new_user_registration_path %></li>
+              <% else %>
+                <li><%= link_to "Update Account", edit_user_registration_path %></li>
+                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+              <% end %>
+            </ul>
           </div>
         </div>
-        <% if !user_signed_in?%>
-          <div class="small-3 columns">
-            <%= link_to "Sign In", new_user_session_path %>
-          </div>
-          <div class="small-3 columns">
-            <%= link_to "Sign Up", new_user_registration_path %>
-          </div>
-        <% else %>
-          <div class="small-3 columns">
-              <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-          </div>
-          <div class="small-3 columns">
-              <%= link_to "Update Account", edit_user_registration_path %>
-          </div>
-        <% end %>
       </div>
     </div>
     <div class="row small-12 columns" id="flash-notices">

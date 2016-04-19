@@ -1,17 +1,43 @@
 $peach: #1a1a1a;
 $white: #ffffff;
 $prettyblue: #33cccc;
+$lightgreen: #bbff99;
+$darkblue: #003333;
+$darkgrey: #4d4d4d;
 
 #logo {
-  color: $prettyblue;
+  bottom: -4px;
   font-family: 'Shadows Into Light', cursive;
   font-size: 40px;
   font-weight: bold;
+  left: 5px;
   letter-spacing: 5px;
+  position: absolute;
 }
 
-.topbar {
-  background-color: $white;
-  height: 70px;
-  margin: 0;
+.header-color {
+  color: $darkgrey;
+}
+
+.top-bar-right {
+  padding-top: 25px;
+}
+
+.sticky-top {
+  padding: 0;
+
+}
+
+.circle-header {
+  background-color: $lightgreen;
+  border-radius: 50%;
+  -webkit-filter: blur(15px);
+  height: 50px;
+  margin-left: 17px;
+  width: 50px;
+}
+
+.left-header {
+  padding-top: 10px;
+  position: relative;
 }

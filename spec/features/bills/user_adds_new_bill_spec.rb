@@ -18,7 +18,7 @@ feature "authenticated user adds a new bill" do
     click_button "Submit"
 
     expect(page).to have_content bill1.nickname
-    expect(page).to have_content bill1.next_due_date
+    expect(page).to have_content "09/01/16"
     expect(page).to have_content bill1.recurring_amt
   end
 

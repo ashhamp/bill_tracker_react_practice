@@ -21,6 +21,7 @@ $lightgreen: #bbff99;
 $prettyblue: #33cccc;
 $white: #ffffff;
 $darkblue: #003333;
+$darkgrey: #4d4d4d;
 
 body {
   background: url("rainy4.jpg") no-repeat center center fixed;
@@ -43,14 +44,14 @@ body {
 }
 
 .margin-devise {
-  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-bottom: 90px;
   background-color: $white;
-opacity: 0.9;
+  opacity: 0.9;
   padding: 10px;
   border-radius: 25px;
-  border-left: groove 5px $lightgreen;
-
-  border-right: groove 5px $lightgreen;
+  border-left: solid 5px $darkgrey;
+  border-right: solid 5px $darkgrey;
 
 }
 

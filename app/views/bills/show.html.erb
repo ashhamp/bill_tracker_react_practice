@@ -4,7 +4,7 @@
       <h3><%= @bill.nickname %></h3>
     </div>
     <div class="small-12 columns">
-      <div class="small-6 columns">
+      <div class="small-6 columns right-aligned">
         Starting Bill Date:
       </div>
       <div class="small-6 columns">
@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="small-12 columns">
-      <div class="small-6 columns">
+      <div class="small-6 columns right-aligned">
         Next Due Date:
       </div>
       <div class="small-6 columns">
@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="small-12 columns">
-      <div class="small-6 columns">
+      <div class="small-6 columns right-aligned">
         Recurring Payment:
       </div>
       <div class="small-6 columns">
@@ -36,7 +36,7 @@
       </div>
     </div>
     <div class="small-12 columns">
-      <div class="small-6 columns">
+      <div class="small-6 columns right-aligned">
         Web site:
       </div>
       <div class="small-6 columns">
@@ -47,9 +47,19 @@
         <% end %>
       </div>
     </div>
+    <div class="small-12 columns button-wrapper">
+      <div class="small-4 columns centered">
+        <%= link_to "Back", bills_path, class: "button pill" %>
+      </div>
+      <div class="small-4 columns centered">
+        <%= link_to "Update", edit_bill_path(@bill), class: "button pill", id: "update-bill-button" %>
+      </div>
+      <div class="small-4 columns centered">
+        <%= link_to "Delete", bill_path(@bill), method: :delete, class: "button pill" %>
+      </div>
     </div>
-  </div>
-  <div class="small-12 columns back-button">
-    <%= link_to "Back", bills_path, class: "button" %>
+    <div class="small-12 columns hidden" id="update-bill-form">
+      <%= render 'edit_form' %>
+    </div>
   </div>
 </div>

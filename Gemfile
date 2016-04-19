@@ -24,7 +24,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
-  gem 'selenium-webdriver'
+  gem 'poltergeist'
 end
 
 group :test do

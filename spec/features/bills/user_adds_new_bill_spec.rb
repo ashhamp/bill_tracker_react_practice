@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "authenticated user adds a new bill" do
+feature "authenticated user adds a new bill", js: true do
   let!(:user1) { FactoryGirl.create(:user) }
   let(:bill1) { FactoryGirl.build(:bill) }
 
@@ -13,7 +13,7 @@ feature "authenticated user adds a new bill" do
     click_on "Add Bill"
     fill_in "Nickname", with: bill1.nickname
     fill_in "Url", with: bill1.url
-    fill_in "datepicker", with: "2016/09/01"
+    page.execute_script("$('#datepicker').val('2016/09/01')")
     fill_in "Recurring Amount", with: "100.45"
     click_button "Submit"
 

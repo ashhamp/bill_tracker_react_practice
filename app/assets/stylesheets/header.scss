@@ -4,6 +4,7 @@ $prettyblue: #33cccc;
 $lightgreen: #bbff99;
 $darkblue: #003333;
 $darkgrey: #4d4d4d;
+$greyhover: #666666;
 
 #logo {
   bottom: -4px;
@@ -17,6 +18,10 @@ $darkgrey: #4d4d4d;
 
 .header-color {
   color: $darkgrey;
+}
+
+.header-color:hover {
+  color: $greyhover;
 }
 
 .top-bar-right {

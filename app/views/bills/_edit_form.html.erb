@@ -1,0 +1,43 @@
+<div class="small-12 columns">
+  <%= form_for @bill do |f| %>
+    <div class="small-12 columns">
+      <div class="small-12 medium-6 columns">
+        <%= f.label :nickname %>
+        <%= f.text_field :nickname %>
+      </div>
+
+      <div class="small-12 medium-6 columns">
+        <%= f.label :url %>
+        <%= f.url_field :url %>
+      </div>
+    </div>
+
+    <div class="small-12 columns">
+      <div class="small-12 medium-6 columns">
+        <%= f.label :start_due_date, "Starting Date" %>
+        <%= f.text_field :start_due_date, as: :datepicker, id: "datepicker" %>
+      </div>
+
+      <div class="small-12 medium-6 columns">
+        <%= f.label :next_due_date, "Next Due Date" %>
+        <%= f.text_field :next_due_date, as: :datepicker, id: "datepicker2" %>
+      </div>
+    </div>
+    <div class="small-12 columns">
+      <div class="small-12 medium-6 columns">
+        <%= f.label :recurring_amt, "Recurring Amount" %>
+        <%= f.text_field :recurring_amt, placeholder: "0.00" %>
+      </div>
+
+      <div class="small-12 medium-6 columns">
+        <%= f.label :one_time, "One Time" %>
+        <%= f.check_box :one_time %>
+      </div>
+    </div>
+    <div class="small-12 columns">
+      <div class="small-12 columns">
+        <%= f.submit "Submit" %>
+      </div>
+    </div>
+  <% end %>
+</div>

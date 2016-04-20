@@ -1,4 +1,4 @@
-<%= form_for @bill, html: { id: "new-bill-submit" }, remote: true do |f| %>
+<%= form_for @bill, html: { id: "new-bill-submit" } do |f| %>
 
       <div class="small-12 columns" id="new-bill-errors">
 
@@ -41,7 +41,7 @@
 
   <div class="small-12 small-centered columns">
     <div>
-      <%= f.submit "Submit" %>
+      <%= f.submit "Submit", class: "close-reveal-modal", "aria-label" => "Close" %>
     </div>
   </div>
 

@@ -1,7 +1,7 @@
 $(function(){
   $("#new-bill-submit").submit(function(event){
     event.preventDefault();
-  $(#)
+
     var action = $(this).attr('action');
     var method = $(this).attr('method');
 

@@ -23,15 +23,15 @@ RSpec.describe Bill, type: :model do
     end
 
     it { is_expected.to validate_presence_of(:start_due_date) }
-    it do is_expected.to have_valid(
-      :start_due_date).when(
+    it do
+      is_expected.to have_valid(:start_due_date).when(
         "2016/09/01",
         "2017/08/03",
         "01/05/2019"
       )
     end
-    it do is_expected.to_not have_valid(
-      :start_due_date).when(
+    it do
+      is_expected.to_not have_valid(:start_due_date).when(
         nil,
         "",
         "apple",
@@ -40,15 +40,15 @@ RSpec.describe Bill, type: :model do
         "03/19/2016"
       )
     end
-    it do is_expected.to have_valid(
-      :next_due_date).when(
+    it do
+      is_expected.to have_valid(:next_due_date).when(
         "2016/09/01",
         "2017/08/03",
         "01/05/2019"
       )
     end
-    it do is_expected.to_not have_valid(
-      :next_due_date).when(
+    it do
+      is_expected.to_not have_valid(:next_due_date).when(
         "apple",
         2016,
         "2015/01/04",

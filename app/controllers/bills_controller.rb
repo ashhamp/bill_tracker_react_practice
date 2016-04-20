@@ -19,7 +19,7 @@ class BillsController < ApplicationController
           flash[:notice] = "Bill added successfully!"
           redirect_to bills_path
         end
-        format.js { }
+        format.json { render json: { bill: @bill } }
       end
     else
       respond_to do |format|
@@ -28,12 +28,13 @@ class BillsController < ApplicationController
           render :index
         end
         @errors = @bill.errors.full_messages.join(". ")
-        format.js { }
+        format.json { render json: { error: @errors } }
       end
     end
   end
 
   def show
+
     @bill = Bill.find(params[:id])
   end
 

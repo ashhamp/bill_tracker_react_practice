@@ -44,7 +44,7 @@
         </div>
       </div>
     </div>
-    <div class="row small-12 columns" id="flash-notices">
+    <div class="small-12 columns" id="flash-notices">
       <% flash.each do |name, msg| %>
         <% if msg.is_a?(String) %>
           <%= content_tag :div, msg, :class => "flash_#{name}" %>

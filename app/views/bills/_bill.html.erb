@@ -1,0 +1,41 @@
+<div class="small-12 medium-6 large-4 end columns mini-bills">
+  <div class="small-12 columns bill-padding">
+    <div class="small-12 columns index-bill-name">
+      <%= link_to bill.nickname, bill_path(bill.id) %>
+    </div>
+    <div class="small-12 columns">
+      <div class="small-6 columns right-aligned">
+        Next Due:
+      </div>
+      <div class="small-6 columns">
+        <% if bill.next_due_date.present? %>
+          <%= bill.next_due_date.strftime('%D') %>
+        <% else %>
+          N/A
+        <% end %>
+      </div>
+    </div>
+    <div class="small-12 columns">
+      <div class="small-6 columns right-aligned">
+        Amount Paid:
+      </div>
+      <div class="small-6 columns">
+        <% if bill.recurring_amt.present? %>
+          <%= number_to_currency(bill.recurring_amt) %>
+        <% else %>
+          N/A
+        <% end %>
+      </div>
+    </div>
+    <div class="small-12 columns">
+      <div class="small-6 columns right-aligned">
+        <% if bill.url.present? %>
+          <%= link_to "web", bill.url %>
+        <% end %>
+      </div>
+      <div class="small-6 columns">
+        <button>Paid</button>
+      </div>
+    </div>
+  </div>
+</div>

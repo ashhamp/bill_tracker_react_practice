@@ -8,16 +8,28 @@ class BillsController < ApplicationController
 
   def create
     @bill = Bill.new(bill_params)
+
     @start_due_date = params[:bill][:start_due_date]
     @bill.next_due_date = @start_due_date
     @bills = Bill.where(user: current_user)
 
     if @bill.save
-      flash[:notice] = "Bill added successfully!"
-      redirect_to bills_path
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "Bill added successfully!"
+          redirect_to bills_path
+        end
+        format.js { }
+      end
     else
-      flash[:error] = @bill.errors.full_messages.join(". ")
-      render :index
+      respond_to do |format|
+        format.html do
+          flash[:error] = @bill.errors.full_messages.join(". ")
+          render :index
+        end
+        @errors = @bill.errors.full_messages.join(". ")
+        format.js { }
+      end
     end
   end
 

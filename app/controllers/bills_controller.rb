@@ -16,10 +16,18 @@ class BillsController < ApplicationController
     if @bill.save
       respond_to do |format|
         format.html do
-          flash[:notice] = "Bill added successfully!"
+          flash.now[:notice] = "Bill added successfully!"
           redirect_to bills_path
         end
-        format.json { render json: { bill: @bill } }
+        @format_time_start = @bill.start_due_date.strftime('%D')
+        @format_time_next = @bill.next_due_date.strftime('%D')
+        format.json do
+          render json: {
+            bill: @bill,
+            start_date: @format_time_start,
+            next_date: @format_time_next
+          }
+        end
       end
     else
       respond_to do |format|

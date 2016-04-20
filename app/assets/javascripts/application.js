@@ -18,7 +18,8 @@
 //= require jquery-ui/datepicker
 
 $(function(){ $(document).foundation();
-  $( "#add-bill-button" ).click(function() {
+  $( "#add-bill-button" ).click(function(event) {
+    event.preventDefault();
     $( "#new-bill-form" ).toggle();
   });
  });

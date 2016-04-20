@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature "authenticated user updates a bill", js: true do
   let!(:user1) { FactoryGirl.create(:user) }
-  let!(:user2) { FactoryGirl.create(:user) }
   let!(:bill1) { FactoryGirl.create(:bill, user: user1) }
 
   scenario "authenticated user updates a bill successfully" do
@@ -38,12 +37,13 @@ feature "authenticated user updates a bill", js: true do
     expect(page).to_not have_content bill1.url
   end
 
-  # scenario "user cannot edit different user's bookstore" do
-  #   visit root_path
-  #   sign_in(user2)
-  #   click_link bookstore1.name
-  #
-  #   expect(page).to_not have_button "Edit Bookstore"
-  # end
+  scenario "authenticated user updates bill unsuccessfully" do
+    sign_in(user1)
+    click_on bill1.nickname
+    click_on "Update"
+    page.execute_script("$('#datepicker2').val('2014/12/01')")
+    click_on "Submit"
 
+    expect(page).to have_content "Next due date must be after"
+  end
 end

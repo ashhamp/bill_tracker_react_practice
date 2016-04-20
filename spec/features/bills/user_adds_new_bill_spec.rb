@@ -56,6 +56,6 @@ feature "authenticated user adds a new bill", js: true do
     fill_in "Recurring Amount", with: "100.45"
     click_button "Submit"
 
-    expect(page).to have_content "Start due date can't be in the past"
+    expect(page).to have_content "Start due date must be after"
   end
 end

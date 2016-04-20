@@ -9,7 +9,8 @@ $lightgreen: #bbff99;
   padding-right: 0;
 }
 
-.bill-padding {
+.bill-padding,
+ .white-background {
   background-color: $white;
   border-radius: 15px;
   opacity: 0.9;
@@ -31,4 +32,8 @@ $lightgreen: #bbff99;
 
 .right-aligned {
   text-align: right;
+}
+
+.hidden-form {
+  margin: 10px;
 }

@@ -7,7 +7,8 @@ require 'rails_helper'
 feature "user authentication" do
 
   scenario "prospective user enters valid data to create account" do
-    visit new_user_registration_path
+    visit root_path
+    click_on "sign-up-hover"
 
     fill_in "Username", with: "UserMcUser"
     fill_in "Email", with: "usermcuser@example.com"

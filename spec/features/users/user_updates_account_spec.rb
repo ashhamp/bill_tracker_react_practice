@@ -30,7 +30,7 @@ feature "authenticated user updates their profile" do
     expect(page).to have_content "Your account has been updated successfully."
   end
 
-  scenario "user updates profile unsuccessfully" do
+  scenario "authenticated user updates profile unsuccessfully" do
     sign_in(user1)
     click_on("Update Account")
 

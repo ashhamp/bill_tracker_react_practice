@@ -42,10 +42,12 @@
       </div>
     </div>
   <% end %>
-  <div class="small-12 columns">
-    <%= link_to "Add Bill", "#", class: :button, id: "add-bill-button" %>
-  </div>
-  <div class="small-12 columns hidden" id="new-bill-form">
-    <%= render 'form' %>
+  <div class="small-12 columns bill-index">
+    <div class="small-12 columns hidden-form">
+      <%= link_to "Add Bill", "#", class: "button pill", id: "add-bill-button" %>
+    </div>
+    <div class="small-12 columns hidden white-background" id="new-bill-form">
+      <%= render 'form' %>
+    </div>
   </div>
 </div>

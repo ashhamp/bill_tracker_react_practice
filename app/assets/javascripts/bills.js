@@ -57,9 +57,9 @@ var addBill = function(action, method, nickname, billUrl, start_due_date, recurr
 
     var recurring;
     if (data.recurring_amt === "") {
-      recurring = "N/A"
+      recurring = "N/A";
     } else {
-      recurring = data.recurring_amt
+      recurring = data.recurring_amt;
     }
 
     return '<div class="small-12 medium-6 large-4 end columns mini-bills">' +

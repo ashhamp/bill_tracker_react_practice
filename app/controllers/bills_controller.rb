@@ -8,16 +8,42 @@ class BillsController < ApplicationController
 
   def create
     @bill = Bill.new(bill_params)
+
     @start_due_date = params[:bill][:start_due_date]
     @bill.next_due_date = @start_due_date
     @bills = Bill.where(user: current_user)
 
     if @bill.save
-      flash[:notice] = "Bill added successfully!"
-      redirect_to bills_path
+      respond_to do |format|
+        format.html do
+          flash.now[:notice] = "Bill added successfully!"
+          redirect_to bills_path
+        end
+        @format_time_start = @bill.start_due_date.strftime('%D')
+        @format_time_next = @bill.next_due_date.strftime('%D')
+        if @bill.recurring_amt.nil?
+          @recurring_amt = "N/A"
+        else
+          @recurring_amt = format("$%.2f", @bill.recurring_amt)
+        end
+        format.json do
+          render json: {
+            bill: @bill,
+            start_date: @format_time_start,
+            next_date: @format_time_next,
+            recurring_amt: @recurring_amt
+          }
+        end
+      end
     else
-      flash[:error] = @bill.errors.full_messages.join(". ")
-      render :index
+      respond_to do |format|
+        format.html do
+          flash[:error] = @bill.errors.full_messages.join(". ")
+          render :index
+        end
+        @errors = @bill.errors.full_messages.join(". ")
+        format.json { render json: { error: @errors } }
+      end
     end
   end
 
@@ -35,6 +61,17 @@ class BillsController < ApplicationController
       flash[:error] = @bill.errors.full_messages.join(". ")
       render :show
     end
+  end
+
+  def destroy
+    @bill = Bill.find(params[:id])
+
+    if @bill.destroy!
+      flash[:notice] = "Bill deleted successfully"
+    else
+      flash[:error] = "Bill could not be found"
+    end
+    redirect_to bills_path
   end
 
   private

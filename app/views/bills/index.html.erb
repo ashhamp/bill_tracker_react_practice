@@ -1,53 +1,17 @@
 <div class="small-12 columns bill-index">
-  <% @bills.each do |bill| %>
-    <div class="small-12 medium-6 large-4 columns mini-bills">
-      <div class="small-12 columns bill-padding">
-        <div class="small-12 columns index-bill-name">
-          <%= link_to bill.nickname, bill_path(bill) %>
-        </div>
-        <div class="small-12 columns">
-          <div class="small-6 columns right-aligned">
-            Next Due:
-          </div>
-          <div class="small-6 columns">
-            <% if bill.next_due_date.present? %>
-              <%= bill.next_due_date.strftime('%D') %>
-            <% else %>
-              N/A
-            <% end %>
-          </div>
-        </div>
-        <div class="small-12 columns">
-          <div class="small-6 columns right-aligned">
-            Amount Paid:
-          </div>
-          <div class="small-6 columns">
-            <% if bill.recurring_amt.present? %>
-              <%= number_to_currency(bill.recurring_amt) %>
-            <% else %>
-              N/A
-            <% end %>
-          </div>
-        </div>
-        <div class="small-12 columns">
-          <div class="small-6 columns right-aligned">
-            <% if bill.url.present? %>
-              <%= link_to "web", bill.url %>
-            <% end %>
-          </div>
-          <div class="small-6 columns">
-            <button>Paid</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <%= div_for @bill do %>
+    <%= render @bills %>
   <% end %>
   <div class="small-12 columns bill-index">
     <div class="small-12 columns hidden-form">
-      <%= link_to "Add Bill", "#", class: "button pill", id: "add-bill-button" %>
+      <%= link_to "Add Bill", "#", "data-open" => "new-bill-form", class: "button pill", id: "add-bill-button"
+       %>
     </div>
-    <div class="small-12 columns hidden white-background" id="new-bill-form">
+    <div class="reveal" id="new-bill-form" data-reveal>
       <%= render 'form' %>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
   </div>
 </div>

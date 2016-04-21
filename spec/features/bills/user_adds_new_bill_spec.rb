@@ -15,11 +15,14 @@ feature "authenticated user adds a new bill", js: true do
     fill_in "Url", with: bill1.url
     page.execute_script("$('#datepicker').val('2016/09/01')")
     fill_in "Recurring Amount", with: "100.45"
-    click_button "Submit"
 
-    expect(page).to have_content bill1.nickname
-    expect(page).to have_content "09/01/16"
-    expect(page).to have_content bill1.recurring_amt
+    expect_no_page_reload do
+      click_on "Submit"
+
+      expect(page).to have_content bill1.nickname
+      expect(page).to have_content "09/01/16"
+      expect(page).to have_content bill1.recurring_amt
+    end
   end
 
   scenario 'authenticated user tries to submit a blank form' do
@@ -27,10 +30,13 @@ feature "authenticated user adds a new bill", js: true do
     sign_in(user1)
 
     click_on "Add Bill"
-    click_on "Submit"
 
-    expect(page).to have_content "Nickname can't be blank"
-    expect(page).to have_content "Start due date can't be blank"
+    expect_no_page_reload do
+      click_on "Submit"
+
+      expect(page).to have_content "Nickname can't be blank"
+      expect(page).to have_content "Start due date can't be blank"
+    end
   end
 
   scenario 'authenticated user tries to submit an incomplete form' do
@@ -40,9 +46,12 @@ feature "authenticated user adds a new bill", js: true do
     click_link "Add Bill"
     fill_in "Nickname", with: bill1.nickname
     fill_in "Url", with: bill1.url
-    click_button "Submit"
 
-    expect(page).to have_content "Start due date can't be blank"
+    expect_no_page_reload do
+      click_on "Submit"
+
+      expect(page).to have_content "Start due date can't be blank"
+    end
   end
 
   scenario 'authenticated user tries to submit an invalid start date' do
@@ -54,8 +63,11 @@ feature "authenticated user adds a new bill", js: true do
     fill_in "Url", with: bill1.url
     fill_in "datepicker", with: "2014/09/01"
     fill_in "Recurring Amount", with: "100.45"
-    click_button "Submit"
 
-    expect(page).to have_content "Start due date must be after"
+    expect_no_page_reload do
+      link = find_by_id("bill_submit")
+      link.trigger('click')
+      expect(page).to have_content "Start due date must be after"
+    end
   end
 end

@@ -63,6 +63,17 @@ class BillsController < ApplicationController
     end
   end
 
+  def destroy
+    @bill = Bill.find(params[:id])
+
+    if @bill.destroy!
+      flash[:notice] = "Bill deleted successfully"
+    else
+      flash[:error] = "Bill could not be found"
+    end
+    redirect_to bills_path
+  end
+
   private
 
   def bill_params

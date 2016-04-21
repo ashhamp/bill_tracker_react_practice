@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-  # [X] As an authenticated user
-  # I want to delete a bill
-  # So that I can keep my bill info up to date
+# [X] As an authenticated user
+# I want to delete a bill
+# So that I can keep my bill info up to date
 
 feature "authenticated user deletes a bill" do
   let!(:user1) { FactoryGirl.create(:user) }

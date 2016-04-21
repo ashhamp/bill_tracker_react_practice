@@ -17,7 +17,7 @@ feature "authenticated user adds a new bill", js: true do
     fill_in "Recurring Amount", with: "100.45"
 
     expect_no_page_reload do
-      click_button "Submit"
+      click_on "Submit"
 
       expect(page).to have_content bill1.nickname
       expect(page).to have_content "09/01/16"
@@ -48,7 +48,7 @@ feature "authenticated user adds a new bill", js: true do
     fill_in "Url", with: bill1.url
 
     expect_no_page_reload do
-      click_button "Submit"
+      click_on "Submit"
 
       expect(page).to have_content "Start due date can't be blank"
     end
@@ -65,7 +65,8 @@ feature "authenticated user adds a new bill", js: true do
     fill_in "Recurring Amount", with: "100.45"
 
     expect_no_page_reload do
-      click_button "Submit"
+      link = find_by_id("bill_submit")
+      link.trigger('click')
       expect(page).to have_content "Start due date must be after"
     end
   end

@@ -16,16 +16,7 @@ $(function(){
   });
 });
 
-
 var addBill = function(action, method, nickname, billUrl, start_due_date, recurring_amt, one_time) {
-  var today = new Date();
-  var jsStartDate = new Date(start_due_date);
-
-  // if(nickname === "" || start_due_date === "") {
-  //   alert("Nickname and Starting Date both required")
-  // } else if (jsStartDate < today) {
-  //   alert("Starting Date must be later than today's date");
-  // } else {
     var request = $.ajax({
       method: method,
       url: action,
@@ -42,6 +33,7 @@ var addBill = function(action, method, nickname, billUrl, start_due_date, recurr
 
       if (data.bill) {
         $('#new_bill').prepend(billFormat(data));
+        $('#new-bill-form').foundation('close');
       } else if (data.error) {
         $('#new-bill-errors').html(data['error']);
       }
@@ -49,7 +41,26 @@ var addBill = function(action, method, nickname, billUrl, start_due_date, recurr
   };
 
   var billFormat = function(data) {
+    var nextDate;
+    if (data.next_date === "") {
+      nextDate = "N/A";
+    } else {
+      nextDate = data.next_date;
+    }
 
+    var webSite;
+    if (data.bill.url === "") {
+      webSite = "";
+    } else {
+      webSite = "<a href='" + data.bill.url + "'>web</a>";
+    }
+
+    var recurring;
+    if (data.recurring_amt === "") {
+      recurring = "N/A"
+    } else {
+      recurring = data.recurring_amt
+    }
 
     return '<div class="small-12 medium-6 large-4 end columns mini-bills">' +
       '<div class="small-12 columns bill-padding">' +
@@ -61,31 +72,25 @@ var addBill = function(action, method, nickname, billUrl, start_due_date, recurr
             'Next Due:' +
           '</div>' +
           '<div class="small-6 columns">' +
-              data.next_date +
+              nextDate +
           '</div>' +
-        '</div>';
-      }
-    //     <div class="small-12 columns">
-    //       <div class="small-6 columns right-aligned">
-    //         Amount Paid:
-    //       </div>
-    //       <div class="small-6 columns">
-    //         <% if bill.recurring_amt.present? %>
-    //           <%= number_to_currency(bill.recurring_amt) %>
-    //         <% else %>
-    //           N/A
-    //         <% end %>
-    //       </div>
-    //     </div>
-    //     <div class="small-12 columns">
-    //       <div class="small-6 columns right-aligned">
-    //         <% if bill.url.present? %>
-    //           <%= link_to "web", bill.url %>
-    //         <% end %>
-    //       </div>
-    //       <div class="small-6 columns">
-    //         <button class="button pill">Paid</button>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
+        '</div>' +
+        '<div class="small-12 columns">' +
+          '<div class="small-6 columns right-aligned">' +
+            'Amount Paid:' +
+          '</div>' +
+          '<div class="small-6 columns">' +
+            recurring +
+          '</div>' +
+        '</div>' +
+        '<div class="small-12 columns">' +
+          '<div class="small-6 columns right-aligned">' +
+            webSite +
+          '</div>' +
+          '<div class="small-6 columns">' +
+            '<button class="button pill">Paid</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }

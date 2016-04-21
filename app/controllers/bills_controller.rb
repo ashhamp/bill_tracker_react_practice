@@ -21,11 +21,18 @@ class BillsController < ApplicationController
         end
         @format_time_start = @bill.start_due_date.strftime('%D')
         @format_time_next = @bill.next_due_date.strftime('%D')
+        if @bill.recurring_amt.nil?
+          @recurring_amt = "N/A"
+        else
+          @recurring_amt = format("$%.2f", @bill.recurring_amt)
+        end
+  
         format.json do
           render json: {
             bill: @bill,
             start_date: @format_time_start,
-            next_date: @format_time_next
+            next_date: @format_time_next,
+            recurring_amt: @recurring_amt
           }
         end
       end

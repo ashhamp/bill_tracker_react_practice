@@ -1,38 +1,45 @@
+
+<div class="small-12 columns">
+  <div class="small-12 centered columns">
+
+    <h3>Add A New Bill!</h3>
+  </div>
+</div>
 <%= form_for @bill, html: { id: "new-bill-submit" } do |f| %>
 
       <div class="small-12 columns" id="new-bill-errors">
 
       </div>
 
-  <div class="small-12 medium-4 large-3 columns centered">
+  <div class="small-12 columns">
     <div class="small-12 columns">
       <%= f.label :nickname %>
       <%= f.text_field :nickname %>
     </div>
   </div>
 
-  <div class="small-12 medium-4 large-3 columns centered">
+  <div class="small-12 columns">
     <div class="small-12 columns">
       <%= f.label :url %>
       <%= f.url_field :url %>
     </div>
   </div>
 
-  <div class="small-12 medium-4 large-3 columns centered">
+  <div class="small-12 columns">
     <div class="small-12 columns">
       <%= f.label :start_due_date, "Starting Date" %>
       <%= f.text_field :start_due_date, as: :datepicker, id: "datepicker" %>
     </div>
   </div>
 
-  <div class="small-12 medium-4 large-3 columns centered">
+  <div class="small-12 columns">
     <div class="small-12 columns">
       <%= f.label :recurring_amt, "Recurring Amount" %>
       <%= f.text_field :recurring_amt, placeholder: "0.00" %>
     </div>
   </div>
 
-  <div class="small-12 medium-4 large-3 columns">
+  <div class="small-12 columns">
     <div class="small-12 columns">
       <%= f.label :one_time, "One Time" %>
       <%= f.check_box :one_time %>
@@ -41,7 +48,7 @@
 
   <div class="small-12 small-centered columns">
     <div>
-      <%= f.submit "Submit", class: "close-reveal-modal", "aria-label" => "Close" %>
+      <%= f.submit "Submit", class: "close-reveal-modal button pill", "data-close" "aria-label" => "Close modal", id: "bill_submit" %>
     </div>
   </div>
 

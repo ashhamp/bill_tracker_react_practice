@@ -17,8 +17,8 @@ feature "authenticated user updates a bill", js: true do
     click_on "Update"
 
     fill_in "Nickname", with: new_name
-    page.execute_script("$('#datepicker').val('2016/10/31')")
-    page.execute_script("$('#datepicker2').val('2016/12/01')")
+    page.execute_script("$('.datepicker').val('2016/10/31')")
+    page.execute_script("$('datepicker').val('2016/12/01')")
     fill_in "Recurring Amount", with: new_recurring
     fill_in "Url", with: new_web
 
@@ -41,7 +41,7 @@ feature "authenticated user updates a bill", js: true do
     sign_in(user1)
     click_on bill1.nickname
     click_on "Update"
-    page.execute_script("$('#datepicker2').val('2014/12/01')")
+    page.execute_script("$('.datepicker').val('2014/12/01')")
     click_on "Submit"
 
     expect(page).to have_content "Next due date must be after"

@@ -1,0 +1,40 @@
+
+<div class="small-12 columns">
+  <div class="small-12 centered columns">
+
+    <h3>Add A Payment</h3>
+  </div>
+</div>
+<%= form_for @payment, html: { id: "new-payment-submit" } do |f| %>
+
+  <div class="small-12 columns" id="new-payment-errors">
+  </div>
+
+  <div class="small-12 columns">
+    <div class="small-12 columns">
+      <%= f.label :pmt_date, "Date Paid" %>
+      <%= f.text_field :pmt_date, as: :datepicker, class: "datepicker" %>
+    </div>
+  </div>
+
+  <div class="small-12 columns">
+    <div class="small-12 columns">
+      <%= f.label :pmt_amt, "Amount Paid" %>
+      <%= f.text_field :pmt_amt %>
+    </div>
+  </div>
+
+  <div class="small-12 columns">
+    <div class="small-12 columns">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+  </div>
+
+  <div class="small-12 small-centered columns">
+    <div>
+      <%= f.submit "Submit", class: "close-reveal-modal button pill", "data-close" "aria-label" => "Close modal", id: "payment_submit" %>
+    </div>
+  </div>
+
+<% end %>

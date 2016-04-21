@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :bills
+  has_many :payments
 
   validates :username, presence: true, uniqueness: {
     case_sensitive: false

@@ -4,11 +4,8 @@ RSpec.describe Payment, type: :model do
   describe "validations" do
     let!(:user1) { FactoryGirl.create(:user) }
     let!(:user2) { FactoryGirl.create(:user) }
-
     let!(:bill1) { FactoryGirl.create(:bill, user: user1) }
-
     let!(:payment) { FactoryGirl.create(:payment, user: user1, bill: bill1) }
-
 
     it { is_expected.to validate_presence_of(:date) }
     it do

@@ -1,7 +1,5 @@
 class PaymentsController < ApplicationController
-
   def create
-
     @payment = Payment.new(payment_params)
 
     if @payment.save
@@ -13,7 +11,6 @@ class PaymentsController < ApplicationController
       end
       @bill = @payment.bill
       @bill.next_due_date = @next_due_date
-
 
       render json: {
         payment: @payment,
@@ -37,7 +34,6 @@ class PaymentsController < ApplicationController
   end
 
   def new_next_due_date(date)
-
     new_month = next_month(date.month)
     new_year = next_year(date.month, date.year)
     new_day = ""
@@ -56,20 +52,20 @@ class PaymentsController < ApplicationController
   end
 
   def next_month(month)
-    new_month = nil
     if month < 12
-      new_month = month + 1
+      month += 1
     else
-      new_month = 1
+      month = 1
     end
+    month
   end
 
   def next_year(month, year)
-    new_year = nil
     if month < 12
-      new_year = year
+      year = year
     else
-      new_year = year + 1
+      year += 1
     end
+    year
   end
 end

@@ -7,7 +7,8 @@ feature "authenticated user adds transaction to a bill", js: true do
       :bill,
       start_due_date: "2016/06/01",
       next_due_date: "2016/07/01",
-      user: user1)
+      user: user1
+    )
   end
   let(:payment) { FactoryGirl.build(:payment, date: "2016/06/29") }
 

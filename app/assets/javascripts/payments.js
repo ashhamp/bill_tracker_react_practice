@@ -1,4 +1,3 @@
-
   $(function(){
     $(".bill-index").on('click', ".payment-button", (function(event){
       event.preventDefault();
@@ -14,6 +13,14 @@
       });
     }));
   });
+
+  var nextDueDate = function(data){
+    if (data.next_due_date === null) {
+      return "N/A";
+    } else {
+      return data.next_due_date;
+    }
+  };
 
   var addPayment = function(billId) {
     var pmtDate = $('#payment_date').val();
@@ -34,9 +41,7 @@
       }
     });
     request.done(function(data) {
-
       if (data.payment) {
-
         $('#next_due_date' + billId).html(nextDueDate(data));
         $('#new-payment-form').foundation('close');
       } else if (data.errors) {
@@ -47,18 +52,10 @@
   };
 
   $(function(){
-    $("#form_close_new_payment").click(function(event){
+    $("#form_close_new_payment").click(function(){
       $('#payment_date').val("");
       $('#payment_amount').val("");
       $('#payment_description').val("");
       $('#new-payment-errors').html("");
     });
   });
-
-var nextDueDate = function(data){
-  if (data.next_due_date === null) {
-    return "N/A";
-  } else {
-    return data.next_due_date;
-  }
-};

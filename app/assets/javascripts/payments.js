@@ -1,6 +1,6 @@
   var nextDueDate = function(data){
     if (data.next_due_date === null) {
-      return "N/A";
+      return 'N/A';
     } else {
       return data.next_due_date;
     }
@@ -36,20 +36,20 @@
   };
 
   $(function(){
-    $("#form_close_new_payment").click(function(){
-      $('#payment_date').val("");
-      $('#payment_amount').val("");
-      $('#payment_description').val("");
-      $('#new-payment-errors').html("");
+    $('#form_close_new_payment').click(function(){
+      $('#payment_date').val('');
+      $('#payment_amount').val('');
+      $('#payment_description').val('');
+      $('#new-payment-errors').html('');
     });
   });
 
   $(function(){
-    $(".bill-index").on('click', ".payment-button", function(event){
+    $('.bill-index').on('click', '.payment-button', function(event){
       event.preventDefault();
 
       var billIdString = $(this).attr('id');
-      var billId = billIdString.split("-")[1];
+      var billId = billIdString.split('-')[1];
 
       $('#new-payment-form').foundation('open');
 

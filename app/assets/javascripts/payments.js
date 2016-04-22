@@ -45,7 +45,7 @@
   });
 
   $(function(){
-    $(".bill-index").on('click', ".payment-button", (function(event){
+    $(".bill-index").on('click', ".payment-button", function(event){
       event.preventDefault();
 
       var billIdString = $(this).attr('id');
@@ -57,5 +57,5 @@
         event.preventDefault();
       addPayment(billId);
       });
-    }));
+    });
   });

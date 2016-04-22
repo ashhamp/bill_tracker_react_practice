@@ -22,6 +22,7 @@ $prettyblue: #33cccc;
 $white: #ffffff;
 $darkblue: #003333;
 $darkgrey: #4d4d4d;
+$flashred: #cc0000;
 
 body {
   background: url("rainy4.jpg") no-repeat center center fixed;
@@ -40,7 +41,11 @@ body {
 }
 
 #flash-notices {
+  color: $flashred;
+  font-size: 20px;
+  font-weight: bold;
   height: 40px;
+  text-align: center;
 }
 
 .margin-devise {

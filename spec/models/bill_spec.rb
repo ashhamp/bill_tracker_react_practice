@@ -55,5 +55,6 @@ RSpec.describe Bill, type: :model do
         "03/19/2016"
       )
     end
+    it { is_expected.to validate_presence_of(:user) }
   end
 end

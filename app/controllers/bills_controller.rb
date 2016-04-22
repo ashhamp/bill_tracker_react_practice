@@ -4,6 +4,7 @@ class BillsController < ApplicationController
   def index
     @bills = Bill.where(user: current_user).order(:next_due_date)
     @bill = Bill.new
+    @payment = Payment.new
   end
 
   def create

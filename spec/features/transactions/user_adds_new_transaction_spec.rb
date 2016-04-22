@@ -21,6 +21,6 @@ feature "authenticated user adds transaction to a bill", js: true do
     fill_in "Amount Paid", with: payment.amount
     click_on "Submit"
 
-  expect(page).to have_content("08/01/16")
+    expect(page).to have_content("08/01/16")
   end
 end

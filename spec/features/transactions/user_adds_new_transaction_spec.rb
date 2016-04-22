@@ -8,7 +8,7 @@ feature "authenticated user adds transaction to a bill", js: true do
   scenario 'authenticated user successfully adds a transaction' do
     sign_in(user1)
 
-    click_on "paid#{bill1.id}"
+    click_on "paid-#{bill1.id}"
 
     page.execute_script("$('#datepicker-paid').val('#{payment.pmt_date}')")
     fill_in "Amount Paid", with: payment.pmt_amt

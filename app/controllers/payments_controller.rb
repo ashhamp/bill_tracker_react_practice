@@ -1,12 +1,15 @@
 class PaymentsController < ApplicationController
 
   def create
-    @user = current_user
+
     @payment = Payment.new(payment_params)
+
     if @payment.save
+
       @next_due_date = new_next_due_date(@payment.bill.next_due_date)
       @bill = @payment.bill
       @bill.next_due_date = @next_due_date
+
       render json: {
         payment: @payment,
         next_due_date: @next_due_date
@@ -21,20 +24,21 @@ class PaymentsController < ApplicationController
 
   def payment_params
     params.require(:payment).permit(
-      :pmt_date,
-      :pmt_amount,
-      :bill_id
+      :date,
+      :amount,
+      :bill_id,
+      :description
     ).merge(user: current_user)
   end
 
   def new_next_due_date(date)
-    old_date = Date.parse(date)
-    new_month = next_month(old_date.month)
-    new_year = next_year(old_date.month, old_date.year)
+
+    new_month = next_month(date.month)
+    new_year = next_year(date.month, date.year)
     new_day = ""
 
-    if old_date.day <= 28 || old_date.day <= last_day_of_month(new_month, new_year)
-      new_day = old_date.day
+    if date.day <= 28 || date.day <= last_day_of_month(new_month, new_year)
+      new_day = date.day
     else
       new_day = last_day_of_month(new_month, new_year)
     end

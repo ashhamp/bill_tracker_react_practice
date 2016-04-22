@@ -1,7 +1,4 @@
 <div class="small-12 columns bill-index">
-  <%= div_for @bill do %>
-    <%= render @bills %>
-  <% end %>
   <div class="small-12 columns bill-index">
     <div class="small-12 columns hidden-form">
       <%= link_to "Add Bill", "#", "data-open" => "new-bill-form", class: "button pill", id: "add-bill-button"
@@ -14,4 +11,13 @@
       </button>
     </div>
   </div>
+  <%= div_for @bill do %>
+    <%= render @bills %>
+  <% end %>
+</div>
+<div class="reveal" id="new-payment-form" data-reveal>
+  <%= render 'payments/form' %>
+  <button class="close-button" id="form_close_new_payment" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>

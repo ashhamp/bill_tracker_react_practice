@@ -18,8 +18,17 @@
 //= require jquery-ui/datepicker
 
 $(function(){ $(document).foundation();
-  // $( "#add-bill-button" ).click(function(event) {
-  //   event.preventDefault();
-  //   $( "#new-bill-form" ).toggle();
-  // });
+
+    $("#main-sign-up").hover( function() {
+      // highlight the mouseover target
+      $(this).css("-webkit-filter", "blur(0px)");
+    }, function() {
+      $(this).css("-webkit-filter", "blur(3px)");
+    });
+    $("#logo").hover( function() {
+      // highlight the mouseover target
+      $(".circle-header").css("-webkit-filter", "blur(0px)");
+    }, function() {
+      $(".circle-header").css("-webkit-filter", "blur(15px)");
+    });
  });

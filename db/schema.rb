@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(version: 20160421145628) do
   add_index "bills", ["nickname", "user_id"], name: "index_bills_on_nickname_and_user_id", unique: true, using: :btree
 
   create_table "payments", force: :cascade do |t|
-    t.date     "pmt_date",    null: false
-    t.decimal  "pmt_amt",     null: false
+    t.date     "date",        null: false
+    t.decimal  "amount",      null: false
     t.text     "description"
-    t.integer  "user_id"
-    t.integer  "bill_id"
+    t.integer  "user_id",     null: false
+    t.integer  "bill_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

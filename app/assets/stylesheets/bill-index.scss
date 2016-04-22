@@ -3,8 +3,8 @@ $white: #ffffff;
 $lightgreen: #bbff99;
 
 .bill-index {
-  margin-bottom: 100px;
-  margin-top: 50px;
+  // margin-bottom: 100px;
+  // margin-top: 50px;
   padding-left: 0;
   padding-right: 0;
 }
@@ -36,4 +36,8 @@ $lightgreen: #bbff99;
 
 .hidden-form {
   margin: 10px;
+}
+
+#add-bill-button {
+  margin-bottom: 0;
 }

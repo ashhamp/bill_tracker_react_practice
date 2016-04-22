@@ -8,7 +8,7 @@
 
       var nickname = $('#bill_nickname').val();
       var billUrl = $('#bill_url').val();
-      var start_due_date = $('#datepicker').val();
+      var start_due_date = $('#datepicker-bill').val();
       var recurring_amt = $('#bill_recurring_amt').val();
       var one_time = $("#bill_one_time").is(":checked");
 

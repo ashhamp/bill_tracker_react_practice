@@ -5,14 +5,19 @@ class PaymentsController < ApplicationController
     @payment = Payment.new(payment_params)
 
     if @payment.save
-
-      @next_due_date = new_next_due_date(@payment.bill.next_due_date)
+      if @payment.bill.one_time
+        @next_due_date = nil
+      else
+        @next_due_date = new_next_due_date(@payment.bill.next_due_date)
+        @formatted_date = Date.parse(@next_due_date).strftime('%D')
+      end
       @bill = @payment.bill
       @bill.next_due_date = @next_due_date
 
+
       render json: {
         payment: @payment,
-        next_due_date: @next_due_date
+        next_due_date: @formatted_date
       }
     else
       @errors = @payment.errors.full_messages.join(". ")

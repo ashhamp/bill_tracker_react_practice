@@ -34,10 +34,11 @@
       }
     });
     request.done(function(data) {
-debugger;
+
       if (data.payment) {
-        $('#new_bill').prepend(billFormat(data));
-        $('#new-bill-form').foundation('close');
+
+        $('#next_due_date' + billId).html(nextDueDate(data));
+        $('#new-payment-form').foundation('close');
       } else if (data.errors) {
         $('#new-payment-errors').html(data.errors);
       }
@@ -54,67 +55,10 @@ debugger;
     });
   });
 
-
-
-
-// var clearPaymentInfo = function(){
-//
-//
-//   var pmtDate = $('#payment_pmt_date').val();
-//   var pmtAmount = $('#payment_pmt_amt').val();
-// }
-
-  // var billFormat = function(data) {
-  //   var nextDate;
-  //   if (data.next_date === "") {
-  //     nextDate = "N/A";
-  //   } else {
-  //     nextDate = data.next_date;
-  //   }
-  //
-  //   var webSite;
-  //   if (data.bill.url === "") {
-  //     webSite = "";
-  //   } else {
-  //     webSite = "<a href='" + data.bill.url + "'>web</a>";
-  //   }
-  //
-  //   var recurring;
-  //   if (data.recurring_amt === "") {
-  //     recurring = "N/A";
-  //   } else {
-  //     recurring = data.recurring_amt;
-  //   }
-  //
-  //   return '<div class="small-12 medium-6 large-4 end columns mini-bills">' +
-  //     '<div class="small-12 columns bill-padding">' +
-  //       '<div class="small-12 columns index-bill-name">' +
-  //         '<a href="bills/' + data.bill.id + '">'  + data.bill.nickname + '</a>' +
-  //       '</div>' +
-  //       '<div class="small-12 columns">' +
-  //         '<div class="small-6 columns right-aligned">' +
-  //           'Next Due:' +
-  //         '</div>' +
-  //         '<div class="small-6 columns">' +
-  //             nextDate +
-  //         '</div>' +
-  //       '</div>' +
-  //       '<div class="small-12 columns">' +
-  //         '<div class="small-6 columns right-aligned">' +
-  //           'Amount Paid:' +
-  //         '</div>' +
-  //         '<div class="small-6 columns">' +
-  //           recurring +
-  //         '</div>' +
-  //       '</div>' +
-  //       '<div class="small-12 columns">' +
-  //         '<div class="small-6 columns right-aligned">' +
-  //           webSite +
-  //         '</div>' +
-  //         '<div class="small-6 columns">' +
-  //           '<button class="button pill">Paid</button>' +
-  //         '</div>' +
-  //       '</div>' +
-  //     '</div>' +
-  //   '</div>';
-  // }
+var nextDueDate = function(data){
+  if (data.next_due_date === null) {
+    return "N/A";
+  } else {
+    return data.next_due_date;
+  }
+};

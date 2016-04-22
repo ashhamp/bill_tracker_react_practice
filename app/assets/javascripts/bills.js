@@ -1,3 +1,58 @@
+var billFormat = function(data) {
+  var nextDate;
+  if (data.next_date === "") {
+    nextDate = "N/A";
+  } else {
+    nextDate = data.next_date;
+  }
+
+  var webSite;
+  if (data.bill.url === "") {
+    webSite = "";
+  } else {
+    webSite = "<a href='" + data.bill.url + "'>web</a>";
+  }
+
+  var recurring;
+  if (data.recurring_amt === "") {
+    recurring = "N/A";
+  } else {
+    recurring = data.recurring_amt;
+  }
+
+  return '<div class="small-12 medium-6 large-4 end columns mini-bills">' +
+    '<div class="small-12 columns bill-padding">' +
+      '<div class="small-12 columns index-bill-name">' +
+        '<a href="bills/' + data.bill.id + '">'  + data.bill.nickname + '</a>' +
+      '</div>' +
+      '<div class="small-12 columns">' +
+        '<div class="small-6 columns right-aligned">' +
+          'Next Due:' +
+        '</div>' +
+        '<div class="small-6 columns" id="next_due_date' + data.bill.id + '">' +
+            nextDate +
+        '</div>' +
+      '</div>' +
+      '<div class="small-12 columns">' +
+        '<div class="small-6 columns right-aligned">' +
+          'Amount Paid:' +
+        '</div>' +
+        '<div class="small-6 columns">' +
+          recurring +
+        '</div>' +
+      '</div>' +
+      '<div class="small-12 columns">' +
+        '<div class="small-6 columns right-aligned">' +
+          webSite +
+        '</div>' +
+        '<div class="small-6 columns">' +
+
+          '<a href="#" class="button pill payment-button" id="paid-' + data.bill.id + '">Paid</a>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+  '</div>';
+}
 
   $(function(){
     $("#new-bill-submit").submit(function(event){
@@ -40,59 +95,3 @@
         }
       });
     };
-
-    var billFormat = function(data) {
-      var nextDate;
-      if (data.next_date === "") {
-        nextDate = "N/A";
-      } else {
-        nextDate = data.next_date;
-      }
-
-      var webSite;
-      if (data.bill.url === "") {
-        webSite = "";
-      } else {
-        webSite = "<a href='" + data.bill.url + "'>web</a>";
-      }
-
-      var recurring;
-      if (data.recurring_amt === "") {
-        recurring = "N/A";
-      } else {
-        recurring = data.recurring_amt;
-      }
-
-      return '<div class="small-12 medium-6 large-4 end columns mini-bills">' +
-        '<div class="small-12 columns bill-padding">' +
-          '<div class="small-12 columns index-bill-name">' +
-            '<a href="bills/' + data.bill.id + '">'  + data.bill.nickname + '</a>' +
-          '</div>' +
-          '<div class="small-12 columns">' +
-            '<div class="small-6 columns right-aligned">' +
-              'Next Due:' +
-            '</div>' +
-            '<div class="small-6 columns" id="next_due_date' + data.bill.id + '">' +
-                nextDate +
-            '</div>' +
-          '</div>' +
-          '<div class="small-12 columns">' +
-            '<div class="small-6 columns right-aligned">' +
-              'Amount Paid:' +
-            '</div>' +
-            '<div class="small-6 columns">' +
-              recurring +
-            '</div>' +
-          '</div>' +
-          '<div class="small-12 columns">' +
-            '<div class="small-6 columns right-aligned">' +
-              webSite +
-            '</div>' +
-            '<div class="small-6 columns">' +
-
-              '<a href="#" class="button pill payment-button" id="paid-' + data.bill.id + '">Paid</a>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
-      '</div>';
-    }

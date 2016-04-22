@@ -36,7 +36,7 @@
           $('#new_bill').prepend(billFormat(data));
           $('#new-bill-form').foundation('close');
         } else if (data.error) {
-          $('#new-bill-errors').html(data['error']);
+          $('#new-bill-errors').html(data.error);
         }
       });
     };
@@ -89,7 +89,8 @@
               webSite +
             '</div>' +
             '<div class="small-6 columns">' +
-              '<button class="button pill">Paid</button>' +
+
+              '<a href="#" class="button pill payment-button" id="paid-' + data.bill.id + '">Paid</a>' +
             '</div>' +
           '</div>' +
         '</div>' +

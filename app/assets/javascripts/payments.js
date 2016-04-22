@@ -15,6 +15,8 @@ $(function(){
 var addPayment = function(billId) {
   $('#payment_submit').submit(function(event){
     event.preventDefault();
+    var pmtDate = $('#payment_pmt_date');
+    var pmtAmount = $('#payment_pmt_amt');
 
     var request = $.ajax({
       method: 'POST',
@@ -24,16 +26,15 @@ var addPayment = function(billId) {
         bill_id: billId,
         pmt_date: pmtDate,
         pmt_amt: pmtAmount
-
       }},
     });
     request.done(function(data) {
 
-      if (data.bill) {
+      if (data.payment) {
         $('#new_bill').prepend(billFormat(data));
         $('#new-bill-form').foundation('close');
-      } else if (data.error) {
-        $('#new-bill-errors').html(data['error']);
+      } else if (data.errors) {
+        $('#new-payment-errors').html(data.errors);
       }
     });
   };

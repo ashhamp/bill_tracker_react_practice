@@ -72,7 +72,7 @@
             '<div class="small-6 columns right-aligned">' +
               'Next Due:' +
             '</div>' +
-            '<div class="small-6 columns">' +
+            '<div class="small-6 columns" id="next_due_date' + data.bill.id + '">' +
                 nextDate +
             '</div>' +
           '</div>' +

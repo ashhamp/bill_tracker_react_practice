@@ -10,7 +10,7 @@ class PaymentsController < ApplicationController
         @formatted_date = Date.parse(@next_due_date).strftime('%D')
       end
       @bill = @payment.bill
-      @bill.next_due_date = @next_due_date
+      @bill.update_attributes(next_due_date: @next_due_date)
 
       render json: {
         payment: @payment,

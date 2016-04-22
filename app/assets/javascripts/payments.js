@@ -34,7 +34,7 @@
       }
     });
     request.done(function(data) {
-
+debugger;
       if (data.payment) {
         $('#new_bill').prepend(billFormat(data));
         $('#new-bill-form').foundation('close');

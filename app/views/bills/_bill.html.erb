@@ -7,7 +7,7 @@
       <div class="small-6 columns right-aligned">
         Next Due:
       </div>
-      <div class="small-6 columns">
+      <div class="small-6 columns" id="next_due_date<%= bill.id %>">
         <% if bill.next_due_date.present? %>
           <%= bill.next_due_date.strftime('%D') %>
         <% else %>
@@ -17,7 +17,7 @@
     </div>
     <div class="small-12 columns">
       <div class="small-6 columns right-aligned">
-        Amount Paid:
+        Amount:
       </div>
       <div class="small-6 columns">
         <% if bill.recurring_amt.present? %>

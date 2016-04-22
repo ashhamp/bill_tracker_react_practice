@@ -9,8 +9,8 @@ $(function(){
     var billUrl = $('#bill_url').val();
     var start_due_date = $('#datepicker').val();
     var recurring_amt = $('#bill_recurring_amt').val();
-    var one_time = $('#bill_one_time').val();
-
+    var one_time = $("#bill_one_time").is(":checked");
+    
     addBill(action, method, nickname, billUrl, start_due_date, recurring_amt, one_time);
 
   });

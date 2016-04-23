@@ -18,29 +18,33 @@
     <div class="small-12 columns sticky-top" data-sticky-container>
       <div class="small-12 columns sticky-top" data-sticky data-sticky-on="small" data-margin-top="0">
         <div class="small-12 columns top-bar">
-          <div class="top-bar-left">
-            <ul class="menu">
-              <div class="left-header">
-                <div class="circle-header">
+          <div class="small-6 columns">
+            <div class="top-bar-left">
+              <ul class="menu">
+                <div class="left-header">
+                  <div class="circle-header">
+                  </div>
+                  <div id="logo">
+                    <li class="menu-text">
+                      <%= link_to "Defogger", root_path, class: "header-color"%>
+                    </li>
+                  </div>
                 </div>
-                <div id="logo">
-                  <li class="menu-text">
-                    <%= link_to "Defogger", root_path, class: "header-color"%>
-                  </li>
-                </div>
-              </div>
-            </ul>
+              </ul>
+            </div>
           </div>
-          <div class="top-bar-right">
-            <ul class="menu">
-              <% if !user_signed_in?%>
-                <li><%= link_to "Sign In", new_user_session_path %></li>
-                <li><%= link_to "Sign Up", new_user_registration_path %></li>
-              <% else %>
-                <li><%= link_to "Update Account", edit_user_registration_path %></li>
-                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-              <% end %>
-            </ul>
+          <div class="small-6 columns">
+            <div class="top-bar-right">
+              <ul class="menu">
+                <% if !user_signed_in?%>
+                  <li><%= link_to "Sign In", new_user_session_path %></li>
+                  <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                <% else %>
+                  <li><%= link_to "Update Account", edit_user_registration_path %></li>
+                  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                <% end %>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

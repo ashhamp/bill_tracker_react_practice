@@ -4,8 +4,6 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
     if resource.save
-      flash[:notice] = "Account created!"
-      flash.discard
       sign_up(resource_name, resource)
       render json: { redirect: bills_path, status: 200 }
     else

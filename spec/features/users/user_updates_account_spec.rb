@@ -11,9 +11,11 @@ feature "authenticated user updates their profile" do
     sign_in(user1)
     click_on("Update Account")
 
-    fill_in "Email", with: "updateuser@example.com"
-    fill_in "Current password", with: user1.password
-    click_on "update-account-button"
+    within "#user-update" do
+      fill_in "Email", with: "updateuser@example.com"
+      fill_in "Current password", with: user1.password
+      click_on "update-account-button"
+    end
 
     expect(page).to have_content "Your account has been updated successfully."
   end
@@ -22,10 +24,12 @@ feature "authenticated user updates their profile" do
     sign_in(user1)
     click_on("Update Account")
 
-    fill_in "Password", with: "iamanewpassword"
-    fill_in "Password confirmation", with: "iamanewpassword"
-    fill_in "Current password", with: user1.password
-    click_on "update-account-button"
+    within "#user-update" do
+      fill_in "Password", with: "iamanewpassword"
+      fill_in "Password confirmation", with: "iamanewpassword"
+      fill_in "Current password", with: user1.password
+      click_on "update-account-button"
+    end
 
     expect(page).to have_content "Your account has been updated successfully."
   end
@@ -34,8 +38,10 @@ feature "authenticated user updates their profile" do
     sign_in(user1)
     click_on("Update Account")
 
-    fill_in "Email", with: "updateuser@example.com"
-    click_on "update-account-button"
+    within "#user-update" do
+      fill_in "Email", with: "updateuser@example.com"
+      click_on "update-account-button"
+    end
 
     expect(page).to have_content "Current password can't be blank"
   end

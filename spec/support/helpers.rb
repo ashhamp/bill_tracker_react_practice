@@ -1,11 +1,14 @@
 module Helpers
   def sign_in(user)
-    visit new_user_session_path
+    visit root_path
+    click_on "Sign In"
 
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
+    within("div#signin-form", visible: false) do
+      fill_in "Email", with: user.email
+      fill_in "Password", with: user.password
 
-    click_on("sign-in-button")
+      click_on("sign-in-button")
+    end
   end
 
   def expect_no_page_reload

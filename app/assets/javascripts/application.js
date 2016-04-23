@@ -19,11 +19,11 @@
 
 $(function(){ $(document).foundation();
 
-    $("#main-sign-up").hover( function() {
+    $("#sign-up-hover").hover( function() {
       // highlight the mouseover target
       $(this).css("-webkit-filter", "blur(0px)");
     }, function() {
-      $(this).css("-webkit-filter", "blur(3px)");
+      $(this).css("-webkit-filter", "blur(6px)");
     });
     $("#logo").hover( function() {
       // highlight the mouseover target

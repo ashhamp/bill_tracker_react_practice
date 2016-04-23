@@ -2,6 +2,8 @@ $background-green: #e6fff3;
 $white: #ffffff;
 $lightgreen: #bbff99;
 $prettyblue: #33cccc;
+$darkgrey: #4d4d4d;
+$darkblue: #9DB4AE;
 
 .bill-index {
   padding-left: 0;
@@ -10,11 +12,16 @@ $prettyblue: #33cccc;
 
 .bill-padding,
  .white-background {
-  background-color: $white;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 15px;
-  opacity: 0.9;
   margin: 10px;
-  padding: 10px;
+  padding: 0;
+  padding-bottom: 10px;
+}
+
+.columns.bill-padding {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .mini-bills {
@@ -23,10 +30,24 @@ $prettyblue: #33cccc;
 }
 
 .index-bill-name {
+  background-color: $darkgrey;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: $white;
+  font-size: 18px;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin: 0;
+  margin-bottom: 10px;
   text-align: center;
+}
 
+.bill-title {
+  color: $white;
+  font-family: 'Roboto Slab', serif;
+}
+
+.bill-title:hover {
+  color: $prettyblue;
 }
 
 .right-aligned {
@@ -38,6 +59,44 @@ $prettyblue: #33cccc;
 }
 
 #add-bill-button {
-  background-color: $prettyblue;
   margin-bottom: 0;
+}
+
+.payment-button,
+.circle-button {
+  background-color: $prettyblue;
+  border-radius: 1000%;
+  color: $white;
+  display: inline-block;
+  font-family: 'Roboto Slab', serif;
+  font-size: 15px;
+  font-weight: bold;
+  height: 55px;
+  line-height: 55px;
+  text-align:center;
+  vertical-align:center;
+  width: 55px;
+}
+
+.payment-button:hover,
+.circle-button:hover {
+  background-color: scale-color($prettyblue, $lightness: -15%);
+  color: $white;
+}
+
+.grey-circle:hover {
+  background-color: $prettyblue;
+}
+
+.button-margin {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.white-text {
+  color: $darkgrey;
+}
+
+.payment-align {
+  text-align: right;
 }

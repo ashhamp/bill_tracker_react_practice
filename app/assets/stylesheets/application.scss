@@ -95,3 +95,13 @@ label {
 .pill {
   border-radius: 5px;
 }
+
+@media only screen and (max-width: 40em) {
+  .top-bar-right {
+    padding: 0;
+    text-align: right;
+  }
+  .top-bar-right li {
+    display: list-item;
+  }
+}

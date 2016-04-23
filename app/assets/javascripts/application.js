@@ -19,17 +19,17 @@
 
 $(function(){ $(document).foundation();
 
-    $("#sign-up-hover").hover( function() {
+    $('#sign-up-hover').hover( function() {
       // highlight the mouseover target
-      $(this).css("-webkit-filter", "blur(0px)");
+      $(this).css('-webkit-filter', 'blur(0px)');
     }, function() {
-      $(this).css("-webkit-filter", "blur(6px)");
+      $(this).css('-webkit-filter', 'blur(6px)');
     });
-    $("#logo").hover( function() {
+    $('#logo').hover( function() {
       // highlight the mouseover target
-      $(".circle-header").css("-webkit-filter", "blur(0px)");
+      $('.circle-header').css('-webkit-filter', 'blur(0px)');
     }, function() {
-      $(".circle-header").css("-webkit-filter", "blur(15px)");
+      $('.circle-header').css('-webkit-filter', 'blur(15px)');
     });
 
     $('#sign-up-hover').click(function(){

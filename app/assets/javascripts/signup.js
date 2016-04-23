@@ -1,23 +1,10 @@
-
-
-
-$(function(){
-  $('#sign-up-submit').click(function(event){
-    event.preventDefault();
-
-    var username = $('#user_username').val();
-    var email = $('#user_email').val();
-    var password = $('#user_password').val();
-    var passwordConfirmation = $('#user_password_confirmation').val();
-    signUp(username, email, password, passwordConfirmation);
-  });
-});
-
 var signUp = function(username, email, password, passwordConfirmation) {
     var request = $.ajax({
       method: 'POST',
       url: '/users',
-      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+      },
       dataType: 'json',
       data: {
         user: {
@@ -38,12 +25,24 @@ var signUp = function(username, email, password, passwordConfirmation) {
     });
   };
 
-  $(function(){
-    $('#form_close_signup').click(function(){
-      $('#user_username').val('');
-      $('#user_email').val('');
-      $('#user_password').val('');
-      $('#user_password_confirmation').val('');
-      $('#signup-errors').html('')
-    });
+$(function(){
+  $('#sign-up-submit').click(function(event){
+    event.preventDefault();
+
+    var username = $('#user_username').val();
+    var email = $('#user_email').val();
+    var password = $('#user_password').val();
+    var passwordConfirmation = $('#user_password_confirmation').val();
+    signUp(username, email, password, passwordConfirmation);
   });
+});
+
+$(function(){
+  $('#form_close_signup').click(function(){
+    $('#user_username').val('');
+    $('#user_email').val('');
+    $('#user_password').val('');
+    $('#user_password_confirmation').val('');
+    $('#signup-errors').html('');
+  });
+});

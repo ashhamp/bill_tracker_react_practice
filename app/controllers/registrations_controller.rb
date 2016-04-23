@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
       sign_up(resource_name, resource)
       render json: { redirect: bills_path, status: 200 }
     else
-      @errors = @user.errors.full_messages.to_sentence
+      @errors = @user.errors.full_messages.join(". ")
       render json: { errors: @errors, status: 500 }
     end
   end

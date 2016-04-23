@@ -37,8 +37,8 @@
             <div class="top-bar-right">
               <ul class="menu">
                 <% if !user_signed_in?%>
-                  <li><%= link_to "Sign In", new_user_session_path %></li>
-                  <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                  <li><%= link_to "Sign In", '#signin', "data-open" => "signin-form" %></li>
+                  <li><%= link_to "Sign Up", '#signup', "data-open" => "signup-form", id: "topbar-signup"%></li>
                 <% else %>
                   <li><%= link_to "Update Account", edit_user_registration_path %></li>
                   <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
@@ -55,6 +55,18 @@
           <%= content_tag :div, msg, :class => "flash_#{name}" %>
         <% end %>
       <% end %>
+    </div>
+    <div class="reveal" id="signup-form" data-reveal>
+      <%= render 'devise/registrations/new' %>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span id="form_close_signup" aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="reveal" id="signin-form" data-reveal>
+      <%= render 'devise/sessions/new' %>
+      <button class="close-button" data-close aria-label="Close modal" type="button" >
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
     <div class="small-12 columns">
       <%= yield %>

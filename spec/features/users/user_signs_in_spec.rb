@@ -14,11 +14,14 @@ feature "user signs in" do
   end
 
   scenario "user enters invalid sign in information" do
-    visit new_user_session_path
+    visit root_path
+    click_on "Sign In"
 
-    fill_in "Email", with: user1.email
-    fill_in "Password", with: "Iamnotyourpassword"
-    click_on "sign-in-button"
+    within("div#signin-form", visible: false) do
+      fill_in "Email", with: user1.email
+      fill_in "Password", with: "Iamnotyourpassword"
+      click_on "sign-in-button"
+    end
 
     expect(page).to have_content "Invalid email or password."
   end

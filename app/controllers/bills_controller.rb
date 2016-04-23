@@ -49,7 +49,11 @@ class BillsController < ApplicationController
   end
 
   def show
-    @bill = Bill.find(params[:id])
+    if verified_creator(current_user)
+      @bill = Bill.find(params[:id])
+    else
+      redirect_to bills_path
+    end
   end
 
   def update
@@ -86,5 +90,13 @@ class BillsController < ApplicationController
       :one_time,
       :next_due_date,
     ).merge(user: current_user)
+  end
+
+  def verified_creator(user)
+    if user == current_user && user == Bill.find(params[:id]).user
+      true
+    else
+      false
+    end
   end
 end

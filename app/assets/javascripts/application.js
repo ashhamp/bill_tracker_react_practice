@@ -31,4 +31,8 @@ $(function(){ $(document).foundation();
     }, function() {
       $(".circle-header").css("-webkit-filter", "blur(15px)");
     });
+
+    $('#sign-up-hover').click(function(){
+      $('#signup-form').foundation('open');
+    });
  });

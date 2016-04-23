@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root "welcome#index"
 
-  devise_for :users
+  devise_for :users, controllers: {
+      sessions: 'sessions', registrations: 'registrations'
+    }
 
   resources :bills
 

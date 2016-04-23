@@ -48,7 +48,7 @@ $pinkish: #ff6666;
 $prettyblue: #33cccc;
 $darkpurple: #33001a;
 $darkgrey: #4d4d4d;
-
+$lightgreen: #bbff99;
 
 // 1. Global
 // ---------
@@ -244,7 +244,7 @@ $breadcrumbs-item-slash: true;
 $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: $darkgrey;
+$button-background: $prettyblue;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
 $button-color-alt: $black;
@@ -463,7 +463,7 @@ $reveal-width: 600px;
 $reveal-max-width: $global-width;
 $reveal-padding: $global-padding;
 $reveal-border: 1px solid $medium-gray;
-$reveal-radius: $global-radius;
+$reveal-radius: 20px;
 $reveal-zindex: 1005;
 $reveal-overlay-background: rgba($black, 0.45);
 

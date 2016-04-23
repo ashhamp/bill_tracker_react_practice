@@ -32,13 +32,13 @@ body {
   min-width: 100%;
 }
 
-#main-sign-up {
-  border: 8px solid white;
-  border-radius: 20px;
-  -webkit-filter: blur(3px);
-  font-size: 40px;
-  padding: 20px;
-}
+// #main-sign-up {
+//   border: 8px solid $white;
+//   border-radius: 20px;
+//
+//   font-size: 40px;
+//   padding: 20px;
+// }
 
 #flash-notices {
   color: $flashred;
@@ -60,17 +60,27 @@ body {
 }
 
 #sign-up-hover {
-  color: $brightgreen;
-  font-family: 'Bitter', serif;
   font-weight: bold;
+  border: 10px solid $prettyblue;
+  border-radius: 1000%;
+  color: $white;
+  display: inline-block;
+  font-family: 'Roboto Slab', serif;
+  font-size: 50px;
+  height: 300px;
+  line-height: 300px;
+  text-align: center;
+  vertical-align: center;
+  -webkit-filter: blur(6px);
+  width: 300px;
 }
 
 #sign-up-hover:hover {
-  color: $lightgreen;
+  color: $white;
 }
 
 #sign-up-div {
-  margin-top: 150px;
+  margin-top: 100px;
   text-align: center;
 }
 

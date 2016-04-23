@@ -10,7 +10,7 @@ var billFormat = function(data) {
   if (data.bill.url === "") {
     webSite = "";
   } else {
-    webSite = "<a href='" + data.bill.url + "'>web</a>";
+    webSite =   '<div class="small-4 columns centered">' + '<a class="circle-button" href="' + data.bill.url + '">web</a></div>';
   }
 
   var recurring;
@@ -23,9 +23,9 @@ var billFormat = function(data) {
   return '<div class="small-12 medium-6 large-4 end columns mini-bills">' +
     '<div class="small-12 columns bill-padding">' +
       '<div class="small-12 columns index-bill-name">' +
-        '<a href="bills/' + data.bill.id + '">'  + data.bill.nickname + '</a>' +
+        '<a class="bill-title" href="bills/' + data.bill.id + '">'  + data.bill.nickname + '</a>' +
       '</div>' +
-      '<div class="small-12 columns">' +
+      '<div class="small-12 columns white-text">' +
         '<div class="small-6 columns right-aligned">' +
           'Next Due:' +
         '</div>' +
@@ -33,21 +33,21 @@ var billFormat = function(data) {
             nextDate +
         '</div>' +
       '</div>' +
-      '<div class="small-12 columns">' +
+      '<div class="small-12 columns white-text button-margin">' +
         '<div class="small-6 columns right-aligned">' +
-          'Amount Paid:' +
+          'Amount:' +
         '</div>' +
         '<div class="small-6 columns">' +
           recurring +
         '</div>' +
       '</div>' +
       '<div class="small-12 columns">' +
-        '<div class="small-6 columns right-aligned">' +
+      '<div class="small-4 columns">' +
+        '<a class="circle-button" href="bills/' + data.bill.id + '">'  + 'details</a>' +
+      '</div>' +
           webSite +
-        '</div>' +
-        '<div class="small-6 columns">' +
-
-          '<a href="#" class="button pill payment-button" id="paid-' + data.bill.id + '">Paid</a>' +
+        '<div class="small-4 columns payment-align">' +
+          '<a href="#" class=" payment-button" id="paid-' + data.bill.id + '">Paid</a>' +
         '</div>' +
       '</div>' +
     '</div>' +

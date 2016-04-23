@@ -98,9 +98,10 @@ label {
 
 @media only screen and (max-width: 40em) {
   .top-bar-right {
-    text-align: right;
     padding: 0;
+    text-align: right;
   }
+  
   .top-bar-right li {
     display: list-item;
   }

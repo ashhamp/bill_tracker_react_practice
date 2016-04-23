@@ -3,7 +3,8 @@ $white: #ffffff;
 $lightgreen: #bbff99;
 $prettyblue: #33cccc;
 $darkgrey: #4d4d4d;
-$darkblue: #9DB4AE;
+$darkblue: #9db4ae;
+$background-white: rgba(255, 255, 255, 0.8);
 
 .bill-index {
   padding-left: 0;
@@ -12,7 +13,7 @@ $darkblue: #9DB4AE;
 
 .bill-padding,
  .white-background {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: $background-white;
   border-radius: 15px;
   font-family: 'Roboto Slab', serif;
   margin: 10px;
@@ -69,13 +70,12 @@ $darkblue: #9DB4AE;
   border-radius: 1000%;
   color: $white;
   display: inline-block;
-  font-family: 'Roboto Slab', serif;
   font-size: 15px;
   font-weight: bold;
   height: 55px;
   line-height: 55px;
-  text-align:center;
-  vertical-align:center;
+  text-align: center;
+  vertical-align: center;
   width: 55px;
 }
 
@@ -90,8 +90,8 @@ $darkblue: #9DB4AE;
 }
 
 .button-margin {
-  margin-top: 5px;
   margin-bottom: 10px;
+  margin-top: 5px;
 }
 
 .white-text {

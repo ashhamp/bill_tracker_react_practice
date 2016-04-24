@@ -1,18 +1,33 @@
 $white: #ffffff;
+$background-white: rgba(255, 255, 255, 0.8);
+$darkgrey: #4d4d4d;
 
 .bill-name-centered {
-  margin-top: 20px;
-  padding-bottom: 20px;
+  background-color: $darkgrey;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: $white;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 20px;
   text-align: center;
 }
 
 .bill-show-wrapper {
-  background-color: $white;
+  background-color: $background-white;
   border-radius: 15px;
+  color: $darkgrey;
+  font-family: 'Roboto Slab', serif;
   margin-top: 20px;
   margin-bottom: 20px;
+  overflow: scroll;
+  padding: 0;
   padding-bottom: 20px;
-  opacity: 0.9;
+}
+
+.columns.bill-show-wrapper {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .back-button {

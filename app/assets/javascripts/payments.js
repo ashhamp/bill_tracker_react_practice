@@ -54,7 +54,7 @@ $(document).ready(function(){
 
     $('#new-payment-form').foundation('open');
 
-    $('#payment_submit').click(function(event){
+    $('#payment_submit').one('click', function(event){
       event.preventDefault();
     addPayment(billId);
     });

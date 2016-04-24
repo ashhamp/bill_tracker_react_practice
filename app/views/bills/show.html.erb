@@ -49,7 +49,7 @@
     </div>
     <div class="small-12 columns button-wrapper">
       <div class="small-4 columns centered">
-        <%= link_to "Back", bills_path, class: "button pill" %>
+        <%= link_to "Back",  bills_path, class: "button pill" %>
       </div>
       <div class="small-4 columns centered">
         <%= link_to "Update", edit_bill_path(@bill), class: "button pill", id: "update-bill-button" %>
@@ -61,19 +61,21 @@
     <div class="small-12 columns hidden" id="update-bill-form">
       <%= render 'form_edit' %>
     </div>
-    <div class="small-12 columns payments-wrapper">
-      <% @payments.each do |payment| %>
-      <li>
-        <%= payment.date.strftime('%D') %>
-        <%= number_to_currency(payment.amount) %>
-        <% if payment.description %>
-          <%= payment.description %>
+    <% if @payments %>
+      <div class="small-12 columns payments-wrapper">
+        <% @payments.each do |payment| %>
+        <li>
+          <%= payment.date.strftime('%D') %>
+          <%= number_to_currency(payment.amount) %>
+          <% if payment.description %>
+            <%= payment.description %>
+          <% end %>
+          </li>
         <% end %>
-        </li>
-      <% end %>
-      <div class="small-12 columns">
-        Total Payments: <%= number_to_currency(@total) %>
+        <div class="small-12 columns">
+          Total Payments: <%= number_to_currency(@total) %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

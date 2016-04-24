@@ -43,7 +43,6 @@ feature "authenticated user sees a bill's payments", js: true do
     click_on "Submit"
 
     click_on bill1.nickname
-      save_and_open_page
 
     expect(page).to have_content("04/29/16")
     expect(page).to have_content("05/29/16")

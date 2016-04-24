@@ -51,6 +51,8 @@ class BillsController < ApplicationController
   def show
     if verified_creator(current_user)
       @bill = Bill.find(params[:id])
+      @payments = @bill.payments
+      @total = @payments.pluck(:amount).inject(:+)
     else
       redirect_to bills_path
     end

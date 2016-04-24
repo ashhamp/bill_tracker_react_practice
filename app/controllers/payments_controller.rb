@@ -1,13 +1,16 @@
 class PaymentsController < ApplicationController
+    before_action :authenticate_user!
+    
   def create
     @payment = Payment.new(payment_params)
 
     if @payment.save
       if @payment.bill.one_time
         @next_due_date = nil
+        @formatted_date = ""
       else
         @next_due_date = new_next_due_date(@payment.bill.next_due_date)
-        @formatted_date = Date.parse(@next_due_date).strftime('%D')
+        @formatted_date = @next_due_date.strftime('%D')
       end
       @bill = @payment.bill
       @bill.update_attributes(next_due_date: @next_due_date)
@@ -44,7 +47,7 @@ class PaymentsController < ApplicationController
       new_day = last_day_of_month(new_month, new_year)
     end
 
-    "#{new_year}/#{new_month}/#{new_day}"
+    Date.new(new_year, new_month, new_day)
   end
 
   def last_day_of_month(month, year)

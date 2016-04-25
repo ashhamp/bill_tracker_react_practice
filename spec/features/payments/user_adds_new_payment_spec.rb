@@ -33,21 +33,21 @@ feature "authenticated user adds transaction to a bill", js: true do
     end
   end
 
-    scenario 'authenticated user successfully adds payment from show page' do
-      sign_in(user1)
+  scenario 'authenticated user successfully adds payment from show page' do
+    sign_in(user1)
 
-      click_on bill1.nickname
-      click_on "Payment"
+    click_on bill1.nickname
+    click_on "Payment"
 
-      page.execute_script("$('#payment_date').val('#{payment.date}')")
-      fill_in "Amount Paid", with: payment.amount
+    page.execute_script("$('#payment_date').val('#{payment.date}')")
+    fill_in "Amount Paid", with: payment.amount
 
-      expect_no_page_reload do
-        click_on "Submit"
+    expect_no_page_reload do
+      click_on "Submit"
 
-        expect(page).to have_content("08/01/16")
-        expect(page).to have_content("06/29/16")
-        expect(page).to have_content("$201.87")
+      expect(page).to have_content("08/01/16")
+      expect(page).to have_content("06/29/16")
+      expect(page).to have_content("$201.87")
     end
   end
 end

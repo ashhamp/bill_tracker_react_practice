@@ -14,7 +14,7 @@ $(document).ready(function(){
       paymentDescription = "";
     } else {
       paymentDescription = '<div class="small-12 columns">' +
-      'Description: ' + data.payment.description + '</div>'
+      'Description: ' + data.payment.description + '</div>';
     }
 
   return '<div class="small-12 columns">' +
@@ -38,7 +38,7 @@ $(document).ready(function(){
       '</div>' +
     '</div>' +
   '</div>';
-}
+};
 
   var addPaymentShow = function(billId) {
     var pmtDate = $('#payment_date').val();
@@ -81,7 +81,7 @@ $(document).ready(function(){
     $('#new-payment-show-errors').html('');
   });
 
-  $('#bill-show-payment').on('click', function(event){
+  $('#bill-show-payment').on('click', function(){
 
     var billId = $(this).data('bill');
 

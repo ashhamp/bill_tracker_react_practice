@@ -14,10 +14,10 @@ $(document).ready(function(){
       paymentDescription = "";
     } else {
       paymentDescription = '<div class="small-12 columns">' +
-      'Description: ' + data.payment.description + '</div>';
+      data.payment.description + '</div>';
     }
 
-  return '<div class="small-12 columns">' +
+  return '<div class="small-12 columns payment-area">' +
     '<div class="small-6 columns">' +
       '<div class="small-6 columns">' +
         data.payment_date +
@@ -25,10 +25,8 @@ $(document).ready(function(){
       '<div class="small-6 columns">' +
         data.payment_amount +
       '</div>' +
-      paymentDescription +
     '</div>' +
     '<div class="small-6 columns">' +
-      '<div class="small-12 columns">' +
         '<div class="small-6 columns">' +
           'Update' +
         '</div>' +
@@ -36,6 +34,7 @@ $(document).ready(function(){
           'Delete' +
         '</div>' +
       '</div>' +
+        paymentDescription +
     '</div>' +
   '</div>';
 };

@@ -78,21 +78,19 @@
               <div class="small-6 columns">
                 <%= number_to_currency(payment.amount) %>
               </div>
-              <div class="small-12 columns">
-                <% if payment.description %>
-                  Description: <%= payment.description %>
-                <% end %>
-              </div>
             </div>
             <div class="small-6 columns">
-              <div class="small-12 columns">
-                <div class="small-6 columns">
-                  Update
-                </div>
-                <div class="small-6 columns">
-                  Delete
-                </div>
+              <div class="small-6 columns">
+                Update
               </div>
+              <div class="small-6 columns">
+                Delete
+              </div>
+            </div>
+            <div class="small-12 columns">
+              <% if payment.description %>
+                <%= payment.description %>
+              <% end %>
             </div>
           </div>
         <% end %>

@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
     before_action :authenticate_user!
-    
+
   def create
     @payment = Payment.new(payment_params)
 
@@ -14,10 +14,14 @@ class PaymentsController < ApplicationController
       end
       @bill = @payment.bill
       @bill.update_attributes(next_due_date: @next_due_date)
+      @payment_date = @payment.date.strftime('%D')
+      @payment_amount = format("$%.2f", @payment.amount)
 
       render json: {
         payment: @payment,
-        next_due_date: @formatted_date
+        next_due_date: @formatted_date,
+        payment_date: @payment_date,
+        payment_amount: @payment_amount
       }
     else
       @errors = @payment.errors.full_messages.join(". ")

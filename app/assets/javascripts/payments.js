@@ -1,6 +1,6 @@
 $(document).ready(function(){
   var nextDueDate = function(data){
-    if (data.next_due_date === null) {
+    if (data.next_due_date === '') {
       return 'N/A';
     } else {
       return data.next_due_date;

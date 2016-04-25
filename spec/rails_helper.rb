@@ -6,6 +6,14 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/poltergeist'
 
+
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new( app, {
+    debug:     true,  # turn on poltergeist debug mode
+    js_errors: true,  # turn on javascript errors on page
+    timeout:   10000,
+  })
+end
 Capybara.javascript_driver = :poltergeist
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }

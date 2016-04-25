@@ -24,6 +24,7 @@ feature "authenticated user updates a payment", js: true do
     sign_in(user1)
 
     click_on bill1.nickname
+    sleep(5)
     expect(page).to have_content "06/29/16"
     click_on "update-#{payment1.id}"
 
@@ -41,6 +42,7 @@ feature "authenticated user updates a payment", js: true do
     sign_in(user1)
 
     click_on bill1.nickname
+    sleep(5)
     expect(page).to have_content "06/29/16"
     click_on "update-#{payment1.id}"
 

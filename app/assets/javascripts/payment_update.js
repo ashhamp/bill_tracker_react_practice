@@ -1,5 +1,4 @@
-$(document).ready(function(){
-
+$(document).ready(function() {
   var updatePayment = function(paymentId) {
     var pmtDate = $('#datepicker-update-payment').val();
     var pmtAmount = $('#update-amount').val();
@@ -40,7 +39,7 @@ $(document).ready(function(){
     });
   };
 
-  $('.payments-wrapper').on('click', '.update_payment_button',  function(){
+  $('.payments-wrapper').on('click', '.update_payment_button', function(){
     var paymentId = $(this).data('payment_id');
     var paymentDiv = $('#payment-div-' + paymentId);
     $(paymentDiv).removeData();

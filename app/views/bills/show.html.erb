@@ -84,7 +84,7 @@
                  <%= link_to "Update", "#", class: "update_payment_button", id: "update-#{payment.id}", "data-payment_id" => "#{payment.id}"%>
               </div>
               <div class="small-6 columns">
-                Delete
+                <%= link_to "Delete", payment_path(payment), method: :delete  %>
               </div>
             </div>
             <div class="small-12 columns" id="payment_description<%= payment.id %>">

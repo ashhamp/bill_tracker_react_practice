@@ -51,8 +51,9 @@ class BillsController < ApplicationController
   def show
     if verified_creator(current_user)
       @bill = Bill.find(params[:id])
-      @payments = @bill.payments
+      @payments = @bill.payments.order(created_at: :desc)
       @total = @payments.pluck(:amount).inject(:+)
+      @payment = Payment.new
     else
       redirect_to bills_path
     end
@@ -60,6 +61,9 @@ class BillsController < ApplicationController
 
   def update
     @bill = Bill.find(params[:id])
+    @payments = @bill.payments
+    @total = @payments.pluck(:amount).inject(:+)
+    @payment = Payment.new
 
     if @bill.update_attributes(bill_params)
       flash[:notice] = "Bill updated successfully!"

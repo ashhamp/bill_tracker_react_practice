@@ -1,6 +1,7 @@
 $white: #ffffff;
 $background-white: rgba(255, 255, 255, 0.8);
 $darkgrey: #4d4d4d;
+$prettyblue: #33cccc;
 
 .bill-name-centered {
   background-color: $darkgrey;
@@ -40,4 +41,20 @@ $darkgrey: #4d4d4d;
 
 .button-wrapper {
   margin-top: 20px;
+}
+
+.small-header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.payments-wrapper {
+  margin-top: 20px;
+}
+
+.payment-area {
+  border: 1px solid $darkgrey;
+  border-radius: 5px;
+  margin-bottom: 3px;
 }

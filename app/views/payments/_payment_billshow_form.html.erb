@@ -1,0 +1,37 @@
+
+<div class="small-12 columns">
+  <div class="small-12 centered columns">
+    <h3 class="grey-text">Add Payment</h3>
+  </div>
+</div>
+<%= form_for @payment, html: { id: "new-payment-bill-show" } do |f| %>
+  <div class="small-12 columns red-errors" id="new-payment-show-errors">
+  </div>
+
+  <div class="small-12 columns">
+    <div class="small-12 columns">
+      <%= f.label :date, "Date Paid" %>
+      <%= f.text_field :date, as: :datepicker, class: "datepicker" %>
+    </div>
+  </div>
+
+  <div class="small-12 columns">
+    <div class="small-12 columns">
+      <%= f.label :amount, "Amount Paid" %>
+      <%= f.text_field :amount %>
+    </div>
+  </div>
+
+  <div class="small-12 columns">
+    <div class="small-12 columns">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+  </div>
+
+  <div class="small-12 small-centered columns">
+    <div>
+      <%= f.submit "Submit", class: "button pill", id: "show_payment_submit" %>
+    </div>
+  </div>
+<% end %>

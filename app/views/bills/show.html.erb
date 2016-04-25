@@ -1,4 +1,7 @@
-<div class="small-12 medium-10 large-8 medium-centered columns">
+<div class="small-12 columns">
+  <%= link_to "Back",  bills_path, class: "button pill" %>
+</div>
+<div class="row small-12 medium-10 small-centered columns">
   <div class="small-12 columns bill-show-wrapper">
     <div class="small-12 columns bill-name-centered">
       <%= @bill.nickname %>
@@ -15,7 +18,7 @@
       <div class="small-6 columns right-aligned">
         Next Due Date:
       </div>
-      <div class="small-6 columns">
+      <div class="small-6 columns" id="show-next-due">
         <% if @bill.next_due_date.present? %>
           <%= @bill.next_due_date.strftime('%D') %>
         <% else %>
@@ -49,7 +52,7 @@
     </div>
     <div class="small-12 columns button-wrapper">
       <div class="small-4 columns centered">
-        <%= link_to "Back",  bills_path, class: "button pill" %>
+        <a href="#" data-open="bill-show-payment-form" data-bill="<%= @bill.id %>" class="button pill" id="bill-show-payment">Payment</a>
       </div>
       <div class="small-4 columns centered">
         <%= link_to "Update", edit_bill_path(@bill), class: "button pill", id: "update-bill-button" %>
@@ -61,21 +64,45 @@
     <div class="small-12 columns hidden" id="update-bill-form">
       <%= render 'form_edit' %>
     </div>
+    <div class="small-12 columns small-header">
+      Total Payments: <%= number_to_currency(@total) %>
+    </div>
     <% if @payments %>
       <div class="small-12 columns payments-wrapper">
         <% @payments.each do |payment| %>
-        <li>
-          <%= payment.date.strftime('%D') %>
-          <%= number_to_currency(payment.amount) %>
-          <% if payment.description %>
-            <%= payment.description %>
-          <% end %>
-          </li>
+          <div class="small-12 columns payment-area">
+            <div class="small-6 columns">
+              <div class="small-6 columns">
+                <%= payment.date.strftime('%D') %>
+              </div>
+              <div class="small-6 columns">
+                <%= number_to_currency(payment.amount) %>
+              </div>
+              <div class="small-12 columns">
+                <% if payment.description %>
+                  Description: <%= payment.description %>
+                <% end %>
+              </div>
+            </div>
+            <div class="small-6 columns">
+              <div class="small-12 columns">
+                <div class="small-6 columns">
+                  Update
+                </div>
+                <div class="small-6 columns">
+                  Delete
+                </div>
+              </div>
+            </div>
+          </div>
         <% end %>
-        <div class="small-12 columns">
-          Total Payments: <%= number_to_currency(@total) %>
-        </div>
       </div>
     <% end %>
   </div>
+</div>
+<div class="reveal" id="bill-show-payment-form" data-reveal>
+  <%= render 'payments/payment_billshow_form' %>
+  <button class="close-button" id="bill-show-payment-close" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>

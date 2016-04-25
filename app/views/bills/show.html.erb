@@ -70,29 +70,27 @@
     <% if @payments %>
       <div class="small-12 columns payments-wrapper">
         <% @payments.each do |payment| %>
-          <div class="small-12 columns payment-area">
+          <div class="small-12 columns payment-area" id="payment-div-<%= payment.id %>", data-date="<%= payment.date %>", data-amount="<%= payment.amount %>", data-description="<%= payment.description %>" >
             <div class="small-6 columns">
-              <div class="small-6 columns">
+              <div class="small-6 columns" id="payment_date-<%= payment.id %>">
                 <%= payment.date.strftime('%D') %>
               </div>
-              <div class="small-6 columns">
+              <div class="small-6 columns" id="payment_amount<%= payment.id %>">
                 <%= number_to_currency(payment.amount) %>
-              </div>
-              <div class="small-12 columns">
-                <% if payment.description %>
-                  Description: <%= payment.description %>
-                <% end %>
               </div>
             </div>
             <div class="small-6 columns">
-              <div class="small-12 columns">
-                <div class="small-6 columns">
-                  Update
-                </div>
-                <div class="small-6 columns">
-                  Delete
-                </div>
+              <div class="small-6 columns">
+                 <%= link_to "Update", "#", class: "update_payment_button", id: "update-#{payment.id}", "data-payment_id" => "#{payment.id}"%>
               </div>
+              <div class="small-6 columns">
+                <%= link_to "Delete", payment_path(payment), method: :delete  %>
+              </div>
+            </div>
+            <div class="small-12 columns" id="payment_description<%= payment.id %>">
+              <% if payment.description %>
+                <%= payment.description %>
+              <% end %>
             </div>
           </div>
         <% end %>
@@ -103,6 +101,12 @@
 <div class="reveal" id="bill-show-payment-form" data-reveal>
   <%= render 'payments/payment_billshow_form' %>
   <button class="close-button" id="bill-show-payment-close" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="reveal" id="payment-update-form" data-reveal>
+  <%= render 'payments/edit' %>
+  <button class="close-button" id="close_payment-update" data-close aria-label="Close modal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>

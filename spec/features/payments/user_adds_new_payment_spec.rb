@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "authenticated user adds transaction to a bill", js: true do
+feature "authenticated user adds a payment to a bill", js: true do
   let!(:user1) { FactoryGirl.create(:user) }
   let!(:bill1) do
     FactoryGirl.create(

@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   resources :bills
 
-  resources :payments, only: [:create]
+  resources :payments, only: [:create, :update, :destroy]
 end

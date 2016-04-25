@@ -1,0 +1,37 @@
+
+<div class="small-12 columns">
+  <div class="small-12 centered columns">
+    <h3 class="grey-text">Update Payment</h3>
+  </div>
+</div>
+<%= form_for @payment, html: { id: "payment-update-submit" } do |f| %>
+  <div class="small-12 columns red-errors" id="payment-update-errors">
+  </div>
+
+  <div class="small-12 columns">
+    <div class="small-12 columns">
+      <%= f.label :date, "Date Paid" %>
+      <%= f.text_field :date, as: :datepicker, class: "datepicker", id: "datepicker-update-payment" %>
+    </div>
+  </div>
+
+  <div class="small-12 columns">
+    <div class="small-12 columns">
+      <%= f.label :amount, "Amount Paid" %>
+      <%= f.text_field :amount, id: "update-amount" %>
+    </div>
+  </div>
+
+  <div class="small-12 columns">
+    <div class="small-12 columns">
+      <%= f.label :description %>
+      <%= f.text_area :description, id: "update-description" %>
+    </div>
+  </div>
+
+  <div class="small-12 small-centered columns">
+    <div>
+      <%= f.submit "Submit", class: "close-reveal-modal button pill", id: "payment_update_submit" %>
+    </div>
+  </div>
+<% end %>

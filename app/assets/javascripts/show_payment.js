@@ -17,18 +17,18 @@ $(document).ready(function(){
       data.payment.description + '</div>';
     }
 
-  return '<div class="small-12 columns payment-area">' +
+  return '<div class="small-12 columns payment-area" id="payment-div-' + data.payment.id + '", data-date="' + data.payment.date + '", data-amount="' + data.payment.amount + '", data-description="' + data.payment.description + '">' +
     '<div class="small-6 columns">' +
-      '<div class="small-6 columns">' +
+      '<div class="small-6 columns" id="payment_date-' + data.payment.id + '">' +
         data.payment_date +
       '</div>' +
-      '<div class="small-6 columns">' +
+      '<div class="small-6 columns" id="payment_amount' + data.payment.id + '">' +
         data.payment_amount +
       '</div>' +
     '</div>' +
     '<div class="small-6 columns">' +
         '<div class="small-6 columns">' +
-          'Update' +
+          '<a href="#" class="update_payment_button", id="update-' + data.payment.id + '", data-payment_id="' + data.payment.id + '"> Update</a>' +
         '</div>' +
         '<div class="small-6 columns">' +
           'Delete' +

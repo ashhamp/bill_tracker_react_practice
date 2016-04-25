@@ -21,12 +21,38 @@ class PaymentsController < ApplicationController
         payment: @payment,
         next_due_date: @formatted_date,
         payment_date: @payment_date,
-        payment_amount: @payment_amount
+        payment_amount: @payment_amount,
       }
     else
       @errors = @payment.errors.full_messages.join(". ")
       render json: { errors: @errors }
     end
+  end
+
+  def update
+    @payment = Payment.find(params[:id])
+
+    if @payment.update_attributes(payment_params)
+      @date = @payment.date.strftime('%D')
+      @no_format_date = @payment.date
+      @amount = format("$%.2f", @payment.amount)
+      @no_format_amount = @payment.amount
+      @bill = @payment.bill
+      @total = @bill.payments.pluck(:amount).inject(:+)
+
+      render json: {
+        date: @date,
+        amount: @amount,
+        description: @payment.description,
+        total: format("$%.2f", @total),
+        no_format_amount: @no_format_amount,
+        no_format_date: @no_format_date
+      }
+    else
+      @errors = @payment.errors.full_messages.join(". ")
+      render json: { errors: @errors }
+    end
+
   end
 
   private

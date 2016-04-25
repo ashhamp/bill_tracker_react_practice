@@ -36,4 +36,20 @@ feature "authenticated user updates a payment", js: true do
       expect(page).to_not have_content "06/29/16"
     end
   end
+
+  scenario 'authenticated user unsuccessfully updates a payment' do
+    sign_in(user1)
+
+    click_on bill1.nickname
+    expect(page).to have_content "06/29/16"
+    click_on "update-#{payment1.id}"
+
+    page.execute_script("$('#datepicker-update-payment').val('')")
+
+    expect_no_page_reload do
+      click_on "Submit"
+
+      expect(page).to have_content("Date can't be blank")
+    end
+  end
 end

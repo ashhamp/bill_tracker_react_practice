@@ -1,11 +1,4 @@
 $(document).ready(function(){
-  var nextDueDate = function(data){
-    if (data.next_due_date === '') {
-      return 'N/A';
-    } else {
-      return data.next_due_date;
-    }
-  };
 
   var updatePayment = function(paymentId) {
     var pmtDate = $('#datepicker-update-payment').val();
@@ -39,7 +32,7 @@ $(document).ready(function(){
         $('#payment-update-errors').html('');
         $('#payment-update-form').foundation('close');
 
-        var paymentDiv = $('#payment-div-' + paymentId)
+        var paymentDiv = $('#payment-div-' + paymentId);
         $(paymentDiv).attr('data-date', data.no_format_date);
         $(paymentDiv).attr('data-amount', data.no_format_amount);
         $(paymentDiv).attr('data-description', data.description);
@@ -47,15 +40,7 @@ $(document).ready(function(){
     });
   };
 
-
-  // $('#bill-show-payment-close').click(function(){
-  //   $('#payment_date').val('');
-  //   $('#payment_amount').val('');
-  //   $('#payment_description').val('');
-  //   $('#new-payment-show-errors').html('');
-  // });
-
-  var paymentInfo = $('.payments-wrapper').on('click', '.update_payment_button',  function(){
+  $('.payments-wrapper').on('click', '.update_payment_button',  function(){
     var paymentId = $(this).data('payment_id');
     var paymentDiv = $('#payment-div-' + paymentId);
     $(paymentDiv).removeData();

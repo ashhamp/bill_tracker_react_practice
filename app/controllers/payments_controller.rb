@@ -39,7 +39,7 @@ class PaymentsController < ApplicationController
       @no_format_amount = @payment.amount
       @bill = @payment.bill
       @total = @bill.payments.pluck(:amount).inject(:+)
-      
+
       render json: {
         date: @date,
         amount: @amount,

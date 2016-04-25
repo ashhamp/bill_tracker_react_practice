@@ -6,7 +6,7 @@ $(document).ready(function(){
     var pmtDescription = $('#update-description').val();
 
     var request = $.ajax({
-      method: 'PATCH',
+      type: 'PATCH',
       url: '/payments/' + paymentId,
       dataType: 'json',
       data: {

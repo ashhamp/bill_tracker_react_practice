@@ -1,22 +1,22 @@
 $(document).ready(function(){
   var billFormat = function(data) {
     var nextDate;
-    if (data.next_date === "") {
-      nextDate = "N/A";
+    if (data.next_date === '') {
+      nextDate = 'N/A';
     } else {
       nextDate = data.next_date;
     }
 
     var webSite;
-    if (data.bill.url === "") {
-      webSite = "";
+    if (data.bill.url === '') {
+      webSite = '';
     } else {
       webSite =   '<div class="small-4 columns centered">' + '<a class="circle-button" href="' + data.bill.url + '">web</a></div>';
     }
 
     var recurring;
-    if (data.recurring_amt === "") {
-      recurring = "N/A";
+    if (data.recurring_amt === '') {
+      recurring = 'N/A';
     } else {
       recurring = data.recurring_amt;
     }
@@ -53,10 +53,10 @@ $(document).ready(function(){
         '</div>' +
       '</div>' +
     '</div>';
-  }
+  };
 
 
-  $("#new-bill-submit").submit(function(event){
+  $('#new-bill-submit').submit(function(event){
     event.preventDefault();
 
     var action = $(this).attr('action');
@@ -66,7 +66,7 @@ $(document).ready(function(){
     var billUrl = $('#bill_url').val();
     var start_due_date = $('#datepicker-bill').val();
     var recurring_amt = $('#bill_recurring_amt').val();
-    var one_time = $("#bill_one_time").is(":checked");
+    var one_time = $('#bill_one_time').is(':checked');
 
     addBill(action, method, nickname, billUrl, start_due_date, recurring_amt, one_time);
   });
@@ -107,7 +107,7 @@ $(document).ready(function(){
     $('#bill_url').val('');
     $('#datepicker-bill').val('');
     $('#bill_recurring_amt').val('');
-    $("#bill_one_time").prop( "checked", false );
+    $('#bill_one_time').prop('checked', false );
     $('#new-bill-errors').html('');
   });
 });

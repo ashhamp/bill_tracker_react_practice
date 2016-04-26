@@ -10,7 +10,7 @@ feature "authenticated user deletes a payment", js: true do
       user: user1
     )
   end
-  let!(:bill2) { FactoryGirl.create(:bill, user: user1)}
+  let!(:bill2) { FactoryGirl.create(:bill, user: user1) }
   let!(:payment1) { FactoryGirl.create(:payment, user: user1, bill: bill1) }
   let!(:payment2) do
     FactoryGirl.create(
@@ -21,7 +21,6 @@ feature "authenticated user deletes a payment", js: true do
       user: user1
     )
   end
-
 
   scenario 'authenticated user deletes payment' do
     sign_in(user1)

@@ -55,7 +55,6 @@ class PaymentsController < ApplicationController
   end
 
   def destroy
-
     @payment = Payment.find_by_id(params[:id])
 
     if @payment

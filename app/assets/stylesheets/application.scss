@@ -23,6 +23,7 @@ $white: #ffffff;
 $darkblue: #003333;
 $darkgrey: #4d4d4d;
 $flashred: #cc0000;
+$flashorange: #e65c00;
 
 body {
   background: url("rainy4.jpg") no-repeat center center fixed;
@@ -32,17 +33,9 @@ body {
   min-width: 100%;
 }
 
-// #main-sign-up {
-//   border: 8px solid $white;
-//   border-radius: 20px;
-//
-//   font-size: 40px;
-//   padding: 20px;
-// }
-
 #flash-notices {
-  color: $white;
   background-color: $prettyblue;
+  color: $white;
   display: none;
   font-size: 20px;
   font-weight: bold;
@@ -52,7 +45,7 @@ body {
 }
 
 #flash-notices-non-js {
-  color: black;
+  color: $flashorange;
   background-color: none;
   font-size: 20px;
   font-weight: bold;

@@ -55,30 +55,34 @@ class PaymentsController < ApplicationController
   end
 
   def destroy
-    @payment = Payment.find(params[:id])
-    @bill = @payment.bill
 
-    respond_to do |format|
-      if @payment.destroy
+    @payment = Payment.find_by_id(params[:id])
+
+    if @payment
+      @bill = @payment.bill
+      @payment.destroy
+      respond_to do |format|
         format.html do
           flash[:notice] = "Payment deleted!"
           redirect_to bill_path(@bill)
         end
         format.json do
-          if @bill.payments
+          if !@bill.payments.empty?
             @total = "Total payments: #{format('$%.2f', @bill.payments.pluck(:amount).inject(:+))}"
           else
             @total = "Total Payments:"
           end
           render json: { message: "Payment deleted!", total: @total, status: 200 }
         end
-      else
+      end
+    else
+      respond_to do |format|
         format.html do
           flash[:error] = "Payment not found"
-          redirect_to bill_path(@bill)
+          redirect_to bills_path
         end
         format.json do
-          render json: { message: "Payment not found", status: 500, redirect: bill_path(@bill) }
+          render json: { message: "Payment not found", status: 400 }
         end
       end
     end

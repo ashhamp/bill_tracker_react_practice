@@ -12,8 +12,12 @@ $(document).ready(function(){
         $('#payment-div-' + paymentId).remove();
         $('.small-header').html(data.total);
         $('#flash-notices').html(data.message);
-      } else if (data.status === 500) {
+        $('#flash-notices').show();
+        $('#flash-notices').fadeOut(15000);
+      } else if (data.status === 400) {
         $('#flash-notices').html(data.message);
+        $('#flash-notices').show();
+        $('#flash-notices').fadeOut(15000);
       }
     });
   };

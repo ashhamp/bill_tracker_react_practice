@@ -49,6 +49,7 @@ $(document).ready(function() {
     var originalDescription = $(paymentDiv).data('description');
 
     $('#payment-update-form').foundation('open');
+    $('#payment-update-form').draggable();
     $('#datepicker-update-payment').val(originalDate);
     $('#update-amount').val(originalAmount);
     $('#update-description').val(originalDescription);

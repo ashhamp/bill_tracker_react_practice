@@ -31,7 +31,7 @@ $(document).ready(function(){
           '<a href="#" class="update_payment_button", id="update-' + data.payment.id + '", data-payment_id="' + data.payment.id + '"> Update</a>' +
         '</div>' +
         '<div class="small-6 columns">' +
-          'Delete' +
+          '<a class="payment-delete" id="delete-' + data.payment.id + '" data-payment_id="' + data.payment.id + '" rel=nofollow" data-method="delete" href="/payments/' + data.payment.id + '">Delete</a>' +
         '</div>' +
       '</div>' +
         paymentDescription +

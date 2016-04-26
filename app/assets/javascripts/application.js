@@ -16,6 +16,7 @@
 //= require_tree .
 //= blur
 //= require jquery-ui/datepicker
+//= require jquery-ui
 
 $(function(){ $(document).foundation();
 

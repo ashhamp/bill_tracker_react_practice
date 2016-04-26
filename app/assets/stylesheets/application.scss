@@ -51,6 +51,16 @@ body {
   text-align: center;
 }
 
+#flash-notices-non-js {
+  color: black;
+  background-color: none;
+  font-size: 20px;
+  font-weight: bold;
+  height: 40px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
 .margin-devise {
   background-color: $white;
   border-left: solid 5px $darkgrey;

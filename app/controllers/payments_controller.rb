@@ -16,12 +16,14 @@ class PaymentsController < ApplicationController
       @bill.update_attributes(next_due_date: @next_due_date)
       @payment_date = @payment.date.strftime('%D')
       @payment_amount = format("$%.2f", @payment.amount)
+      @total = @bill.payments.sum(:amount)
 
       render json: {
         payment: @payment,
         next_due_date: @formatted_date,
         payment_date: @payment_date,
         payment_amount: @payment_amount,
+        total: format('$%.2f', @total)
       }
     else
       @errors = @payment.errors.full_messages.join(". ")
@@ -38,7 +40,7 @@ class PaymentsController < ApplicationController
       @amount = format("$%.2f", @payment.amount)
       @no_format_amount = @payment.amount
       @bill = @payment.bill
-      @total = @bill.payments.pluck(:amount).inject(:+)
+      @total = @bill.payments.sum(:amount)
 
       render json: {
         date: @date,
@@ -67,9 +69,9 @@ class PaymentsController < ApplicationController
         end
         format.json do
           if !@bill.payments.empty?
-            @total = "Total payments: #{format('$%.2f', @bill.payments.pluck(:amount).inject(:+))}"
+            @total = format('$%.2f', @bill.payments.sum(:amount))
           else
-            @total = "Total Payments:"
+            @total = ""
           end
           render json: { message: "Payment deleted!", total: @total, status: 200 }
         end

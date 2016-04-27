@@ -24,7 +24,7 @@ $(function(){ $(document).foundation();
       // highlight the mouseover target
       $(this).css('-webkit-filter', 'blur(0px)');
     }, function() {
-      $(this).css('-webkit-filter', 'blur(6px)');
+      $(this).css('-webkit-filter', 'blur(3px)');
     });
     $('#logo').hover( function() {
       // highlight the mouseover target

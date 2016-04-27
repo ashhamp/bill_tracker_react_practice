@@ -3,8 +3,14 @@ class BillsController < ApplicationController
 
   def index
     @bills = Bill.where(user: current_user).order(:next_due_date)
+
     @bill = Bill.new
     @payment = Payment.new
+    @payments = Payment.where(user: current_user).group_by_month_of_year(:date)
+    @info = @payments.group(:bill_id, date: Time.now.month)
+
+
+
   end
 
   def create

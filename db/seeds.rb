@@ -5,7 +5,7 @@ unless usermcuser.present?
     email: "usermcuser@example.com",
     password: "password",
     password_confirmation: "password"
-)
+  )   
 end
 
 bill1 = Bill.find_or_create_by(

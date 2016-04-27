@@ -14,6 +14,7 @@ gem 'foundation-rails'
 gem 'devise'
 gem 'jquery-ui-rails'
 gem 'puma'
+gem 'validates_timeliness', '~> 4.0'
 
 group :development, :test do
   gem 'pry-rails'
@@ -26,7 +27,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'poltergeist'
-  gem 'validates_timeliness', '~> 4.0'
+
 end
 
 group :test do

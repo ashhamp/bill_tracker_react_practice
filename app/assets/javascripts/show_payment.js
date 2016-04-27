@@ -58,10 +58,11 @@ $(document).ready(function(){
       }
     });
     request.done(function(data) {
-
+debugger;
       if (data.payment) {
         $('#show-next-due').html(nextDueDate(data));
         $('.payments-wrapper').prepend(paymentFormat(data));
+        $('.small-header').html('Total Payments: ' + data.total);
         $('#payment_date').val('');
         $('#payment_amount').val('');
         $('#payment_description').val('');

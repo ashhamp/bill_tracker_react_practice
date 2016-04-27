@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
 gem 'devise'
 gem 'jquery-ui-rails'
+gem 'puma'
 
 group :development, :test do
   gem 'pry-rails'

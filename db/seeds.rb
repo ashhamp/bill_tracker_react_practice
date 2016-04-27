@@ -2,9 +2,9 @@ usermcuser = User.find_by(email: "heyeveryone@example.com")
 unless usermcuser.present?
   usermcuser = User.create(
     username: "usermcuser",
-    email: "heyeveryone@example.com",
-    password: "iamalittlepassword",
-    password_confirmation: "iamalittlepassword"
+    email: "usermcuser@example.com",
+    password: "password",
+    password_confirmation: "password"
 )
 end
 

@@ -1,9 +1,16 @@
 <div class="small-12 columns bill-index">
   <div class="small-12 columns bill-index">
-    <div class="small-12 columns hidden-form">
-      <%= link_to "Add Bill", "#", "data-open" => "new-bill-form", class: "button pill", id: "add-bill-button"
-       %>
+    <div class="small-12 columns">
+      <div class="small-12 columns hidden-form">
+        <%= link_to "Add Bill", "#", "data-open" => "new-bill-form", class: "button pill", id: "add-bill-button"
+         %>
+      </div>
+      <div class="small-12 columns">
+        <%= link_to "payment breakdowns", charts_path, class: "button pill chart-button" %>
+      </div>
     </div>
+
+
     <div class="reveal" id="new-bill-form" data-reveal>
       <%= render 'form' %>
       <button class="close-button" id="form-close-new-bill" data-close aria-label="Close modal" type="button">

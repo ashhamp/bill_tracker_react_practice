@@ -13,6 +13,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
 gem 'devise'
 gem 'jquery-ui-rails'
+gem 'chartkick'
+gem 'groupdate'
 gem 'puma'
 gem 'validates_timeliness', '~> 4.0'
 

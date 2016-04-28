@@ -1,12 +1,13 @@
 class ChartsController < ApplicationController
   before_action :authenticate_user!
 
-  def completed_tasks
+  def index
     @bills = Bill.where(user: current_user)
-    @payment_array = []
-    @bills.each do |bill|
-      @payment_array.push(bill.name, bill.payments.pluck(:amount).inject(:+))
-    end
+    @chart_array = @bills.map { |bill| [bill.nickname, bill.current_month_payments] }
+
+    @chart_array_prior = @bills.map { |bill| [bill.nickname, bill.prior_month_payments] }
+
+    @chart_array_year = @bills.map { |bill| [bill.nickname, bill.past_year_payments] }
 
   end
 end

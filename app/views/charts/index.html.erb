@@ -1,0 +1,25 @@
+<div class="small-12 columns">
+
+
+  <div class"small-12 columns" id="current_month_chart-div">
+    <div class="current_month_title">
+      <h4 class="chart-title">Current Month</h4>
+    </div>
+    <%= pie_chart @chart_array %>
+  </div>
+  <div class"small-12 columns">
+    <div class="current_month_title">
+      <h4 class="chart-title">Prior Month</h4>
+    </div>
+    <%= pie_chart @chart_array_prior %>
+  </div>
+  <div class"small-12 columns">
+    <div class="current_month_title">
+      <h4 class="chart-title">Past Year</h4>
+    </div>
+    <%= pie_chart @chart_array_year %>
+  </div>
+
+
+
+</div>

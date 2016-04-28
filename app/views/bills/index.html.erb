@@ -1,12 +1,16 @@
 <div class="small-12 columns bill-index">
   <div class="small-12 columns bill-index">
-    <div class="small-12 columns hidden-form">
-      <%= link_to "Add Bill", "#", "data-open" => "new-bill-form", class: "button pill", id: "add-bill-button"
-       %>
-    </div>
     <div class="small-12 columns">
-      <%= link_to "Where my money at?", "#", "data-open" => "bills-chart", class: "button pill"%>
+      <div class="small-12 columns hidden-form">
+        <%= link_to "Add Bill", "#", "data-open" => "new-bill-form", class: "button pill", id: "add-bill-button"
+         %>
+      </div>
+      <div class="small-12 columns">
+        <%= link_to "payment breakdowns", charts_path, class: "button pill chart-button" %>
+      </div>
     </div>
+
+
     <div class="reveal" id="new-bill-form" data-reveal>
       <%= render 'form' %>
       <button class="close-button" id="form-close-new-bill" data-close aria-label="Close modal" type="button">
@@ -20,12 +24,6 @@
 </div>
 <div class="reveal" id="new-payment-form" data-reveal>
   <%= render 'payments/form' %>
-  <button class="close-button" id="form_close_new_payment" data-close aria-label="Close modal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div id="bills-chart" data-reveal>
-  <%= pie_chart @payments.sum(:amount), title: "hello" %>
   <button class="close-button" id="form_close_new_payment" data-close aria-label="Close modal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>

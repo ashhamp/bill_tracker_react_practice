@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+
+
   var nextDueDate = function(data){
     if (data.next_due_date === '') {
       return 'N/A';
@@ -58,7 +61,6 @@ $(document).ready(function(){
       }
     });
     request.done(function(data) {
-debugger;
       if (data.payment) {
         $('#show-next-due').html(nextDueDate(data));
         $('.payments-wrapper').prepend(paymentFormat(data));
@@ -85,8 +87,9 @@ debugger;
 
     var billId = $(this).data('bill');
 
-    $('#show_payment_submit').one('click', function(event){
+    $('#show_payment_submit').click(function(event){
       event.preventDefault();
+      event.stopPropagation();
     addPaymentShow(billId);
     });
   });

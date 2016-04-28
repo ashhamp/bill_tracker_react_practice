@@ -1,6 +1,6 @@
 class Bill < ActiveRecord::Base
   belongs_to :user
-  has_many :payments
+  has_many :payments, dependent: :destroy
 
   validates :nickname, presence: true
   validates :start_due_date, presence: true

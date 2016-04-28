@@ -23,7 +23,7 @@ feature "authenticated user adds a payment to a bill", js: true do
 
     click_on "paid-#{bill1.id}"
 
-    page.execute_script("$('#payment_date').val('#{payment.date}')")
+    page.execute_script("$('#datepicker-pmt-#{bill1.id}').val('#{payment.date}')")
     fill_in "Amount Paid", with: payment.amount
 
     expect_no_page_reload do

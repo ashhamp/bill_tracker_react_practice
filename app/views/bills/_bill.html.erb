@@ -37,8 +37,15 @@
         <% end %>
       </div>
       <div class="small-4 columns payment-align">
-        <a href="#" class="payment-button" id="paid-<%= bill.id %>">paid</a>
+        <a href="#" class="payment-button" id="paid-<%= bill.id %>", data-open="new-payment-form-<%= bill.id %>">paid</a>
       </div>
     </div>
   </div>
+</div>
+<div class="reveal" id="new-payment-form-<%= bill.id %>" data-reveal>
+
+  <%= render partial: 'payments/form', locals: { bill_id: bill.id } %>
+  <button class="close-button" id="form_close_new_payment" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>

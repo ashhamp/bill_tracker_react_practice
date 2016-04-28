@@ -56,5 +56,6 @@ RSpec.describe Bill, type: :model do
       )
     end
     it { is_expected.to validate_presence_of(:user) }
+    it { is_expected.to have_many(:payments).dependent(:destroy) }
   end
 end

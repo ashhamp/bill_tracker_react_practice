@@ -26,21 +26,20 @@ feature "authenticated user sees a bill's payments", js: true do
     )
   end
 
-  scenario "authenticated user sees bill's payments"  do
+  scenario "authenticated user sees bill's payments" do
     sign_in(user1)
     click_on "paid-#{bill1.id}"
 
-
-    page.execute_script("$('#payment_date').val('#{payment1.date}')")
+    page.execute_script("$('#datepicker-pmt-#{bill1.id}').val('#{payment1.date}')")
     fill_in "Amount Paid", with: payment1.amount
-    click_on "Submit"
+    click_on "payment_submit"
 
     click_on "paid-#{bill1.id}"
 
-    page.execute_script("$('#payment_date').val('#{payment2.date}')")
+    page.execute_script("$('#datepicker-pmt-#{bill1.id}').val('#{payment2.date}')")
     fill_in "Amount Paid", with: payment2.amount
     fill_in "Description", with: payment2.description
-    click_on "Submit"
+    click_on "payment_submit"
 
     click_on bill1.nickname
 

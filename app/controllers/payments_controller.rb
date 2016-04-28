@@ -48,7 +48,8 @@ class PaymentsController < ApplicationController
         description: @payment.description,
         total: format("$%.2f", @total),
         no_format_amount: @no_format_amount,
-        no_format_date: @no_format_date
+        no_format_date: @no_format_date,
+        message: "Payment updated successfully!"
       }
     else
       @errors = @payment.errors.full_messages.join(". ")

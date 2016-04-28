@@ -38,5 +38,8 @@ RSpec.describe User, type: :model do
         "small"
       )
     end
+
+    it { is_expected.to have_many(:bills).dependent(:destroy) }
+    it { is_expected.to have_many(:payments).dependent(:destroy) }
   end
 end

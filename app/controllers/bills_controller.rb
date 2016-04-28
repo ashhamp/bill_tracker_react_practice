@@ -5,7 +5,6 @@ class BillsController < ApplicationController
     @bills = Bill.where(user: current_user).order(:next_due_date)
     @bill = Bill.new
     @payment = Payment.new
-    @chart_array = @bills.map { |bill| [bill.nickname, bill.current_month_payments] }
   end
 
   def create
@@ -16,37 +15,11 @@ class BillsController < ApplicationController
     @bills = Bill.where(user: current_user)
 
     if @bill.save
-      respond_to do |format|
-        format.html do
-          flash.now[:notice] = "Bill added successfully!"
-          redirect_to bills_path
-        end
-        @format_time_start = @bill.start_due_date.strftime('%D')
-        @format_time_next = @bill.next_due_date.strftime('%D')
-        if @bill.recurring_amt.nil?
-          @recurring_amt = "N/A"
-        else
-          @recurring_amt = format("$%.2f", @bill.recurring_amt)
-        end
-        format.json do
-          render json: {
-            bill: @bill,
-            start_date: @format_time_start,
-            next_date: @format_time_next,
-            recurring_amt: @recurring_amt
-          }
-        end
-      end
+      flash.now[:notice] = "Bill added successfully!"
     else
-      respond_to do |format|
-        format.html do
-          flash[:error] = @bill.errors.full_messages.join(". ")
-          render :index
-        end
-        @errors = @bill.errors.full_messages.join(". ")
-        format.json { render json: { error: @errors } }
-      end
+      flash[:error] = @bill.errors.full_messages.join(". ")
     end
+      redirect_to bills_path
   end
 
   def show

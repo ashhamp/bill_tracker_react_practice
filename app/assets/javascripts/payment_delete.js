@@ -29,6 +29,8 @@ $(document).ready(function(){
     var paymentId = $(this).data('payment_id');
     var url = $(this).attr('href');
 
-    deletePayment(paymentId, url);
+    if (confirm("Are you sure you want to delete payment?")) {
+      deletePayment(paymentId, url);
+    }
   });
 });

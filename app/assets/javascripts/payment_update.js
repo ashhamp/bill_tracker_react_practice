@@ -30,6 +30,9 @@ $(document).ready(function() {
         $('#update-description').val('');
         $('#payment-update-errors').html('');
         $('#payment-update-form').foundation('close');
+        $('#flash-notices').html(data.message);
+        $('#flash-notices').show();
+        $('#flash-notices').fadeOut(15000);
 
         var paymentDiv = $('#payment-div-' + paymentId);
         $(paymentDiv).attr('data-date', data.no_format_date);

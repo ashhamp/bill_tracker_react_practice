@@ -8,7 +8,7 @@ $(document).ready(function(){
   };
 
   var addPayment = function(billId) {
-    var pmtDate = $('#payment_date').val();
+    var pmtDate = $('#datepicker-pmt-' + billId).val();
     var pmtAmount = $('#payment_amount').val();
     var pmtDescription = $('#payment_description').val();
 
@@ -26,12 +26,13 @@ $(document).ready(function(){
       }
     });
     request.done(function(data) {
+
       if (data.payment) {
         $('#next_due_date' + billId).html(nextDueDate(data));
         $('#payment_date').val('');
         $('#payment_amount').val('');
         $('#payment_description').val('');
-        $('#new-payment-form').foundation('close');
+        $('#new-payment-form-' + billId).foundation('close');
       } else if (data.errors) {
         $('#new-payment-errors').html(data.errors);
       }
@@ -46,17 +47,14 @@ $(document).ready(function(){
     $('#new-payment-errors').html('');
   });
 
-  $('.bill-index').on('click', '.payment-button', function(event){
+
+
+  $('.new-payment-submit').submit(function(event){
     event.preventDefault();
 
-    var billIdString = $(this).attr('id');
-    var billId = billIdString.split('-')[1];
+    var billIdString = $(this.parentElement).attr('id');
+    var billId = billIdString.split('-')[3];
 
-    $('#new-payment-form').foundation('open');
-
-    $('#payment_submit').one('click', function(event){
-      event.preventDefault();
     addPayment(billId);
-    });
   });
 });

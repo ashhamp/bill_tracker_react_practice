@@ -6,6 +6,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/poltergeist'
 
+
 Capybara.javascript_driver = :poltergeist
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }

@@ -5,6 +5,7 @@ class BillsController < ApplicationController
     @bills = Bill.where(user: current_user).order(:next_due_date)
     @bill = Bill.new
     @payment = Payment.new
+    @chart_array = @bills.map { |bill| [bill.nickname, bill.current_month_payments] }
   end
 
   def create

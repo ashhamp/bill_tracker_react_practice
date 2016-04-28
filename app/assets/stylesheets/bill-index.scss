@@ -58,6 +58,16 @@ $background-white: rgba(255, 255, 255, 0.8);
 
 .hidden-form {
   margin: 10px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.chart-button {
+  margin: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-top: 10px;
 }
 
 #add-bill-button {
@@ -101,4 +111,14 @@ $background-white: rgba(255, 255, 255, 0.8);
 
 .payment-align {
   text-align: right;
+}
+
+#current_month_chart {
+
+
+
+}
+
+div#chart-1 {
+
 }

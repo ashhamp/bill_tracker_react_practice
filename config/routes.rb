@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :bills
 
   resources :payments, only: [:create, :update, :destroy]
+
+  get 'charts', to: 'charts#index'
 end

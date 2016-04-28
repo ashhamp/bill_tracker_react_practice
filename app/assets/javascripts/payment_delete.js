@@ -10,7 +10,7 @@ $(document).ready(function(){
     request.done(function(data) {
       if (data.status === 200) {
         $('#payment-div-' + paymentId).remove();
-        $('.small-header').html(data.total);
+        $('.small-header').html('Total Payments: ' + data.total);
         $('#flash-notices').html(data.message);
         $('#flash-notices').show();
         $('#flash-notices').fadeOut(15000);

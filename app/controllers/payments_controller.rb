@@ -12,6 +12,7 @@ class PaymentsController < ApplicationController
         @next_due_date = new_next_due_date(@payment.bill.next_due_date)
         @formatted_date = @next_due_date.strftime('%D')
       end
+
       @bill = @payment.bill
       @bill.update_attributes(next_due_date: @next_due_date)
       @payment_date = @payment.date.strftime('%D')

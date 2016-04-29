@@ -4,14 +4,14 @@
     <h3 class="grey-text">Add Payment</h3>
   </div>
 </div>
-<%= form_for @payment, html: { id: "new-payment-bill-show" } do |f| %>
+<%= form_for @payment, html: { class: "new-payment-form", id: "new-payment-bill-show" } do |f| %>
   <div class="small-12 columns red-errors" id="new-payment-show-errors">
   </div>
 
   <div class="small-12 columns">
     <div class="small-12 columns">
       <%= f.label :date, "Date Paid" %>
-      <%= f.text_field :date, as: :datepicker, class: "datepicker" %>
+      <%= f.text_field :date, as: :datepicker, class: "datepicker", id: "datepicker-pmt-show" %>
     </div>
   </div>
 

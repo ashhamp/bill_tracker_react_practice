@@ -5,3 +5,9 @@
 ![Build Status](https://codeship.com/projects/a2171c80-dcc9-0133-f4d3-0a7d4da1657a/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/ashhamp/bill_tracker.png)
 ![Coverage Status](https://coveralls.io/repos/ashhamp/bill_tracker/badge.png)
+
+###### Breakable Toy For Launch Academy Spring 2016
+
+Defogger is a bill tracking site. Enjoy the convenience of having all your bills and information in one place and have it keep track of due dates and payments. https://defogger.herokuapp.com/
+
+

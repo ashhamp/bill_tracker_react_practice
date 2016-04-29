@@ -39,7 +39,9 @@ $(document).ready(function(){
   };
 
 
-  $('#form_close_new_payment').click(function(){
+  $('.form_close_new_payment').click(function(){
+    var billId = $(this).attr('id').split('_')[2];
+
     $('#datepicker-pmt-' + billId).val('');
     $('#payment_amount_' + billId).val('');
     $('#payment_description_' + billId).val('');

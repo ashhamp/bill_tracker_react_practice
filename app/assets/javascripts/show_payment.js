@@ -86,7 +86,7 @@ $(document).ready(function(){
 
 
   $('#show_payment_submit').click(function(event){
-    var billId = window.location.href.split('/')[4].split('#')[0]
+    var billId = window.location.href.split('/')[4].split('#')[0];
 
     event.preventDefault();
     addPaymentShow(billId);

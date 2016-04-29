@@ -13,7 +13,7 @@ Defogger is a bill tracking site. Enjoy the convenience of having all your bills
 #### Use
 https://defogger.herokuapp.com/
 
-###### Local Setup
+#### Local Setup
 In the command line:
 ```
 git clone https://github.com/ashhamp/bill_tracker.git

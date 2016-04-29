@@ -68,8 +68,8 @@
     <div class="reveal" id="new-payment-form-<%= bill.id %>" data-reveal>
 
       <%= render partial: 'payments/form', locals: { bill_id: bill.id } %>
-      <button class="close-button" id="form_close_new_payment" data-close aria-label="Close modal" type="button">
-        <span aria-hidden="true">&times;</span>
+      <button class="close-button"  id="form_close_new_payment_<%= bill.id %>" data-close aria-label="Close modal" type="button">
+        <span class ="form_close_new_payment" id="bill_id_<%= bill.id %>" aria-hidden="true">&times;</span>
       </button>
     </div>
 

@@ -3,8 +3,8 @@
     <h3 class="grey-text">Add Payment</h3>
   </div>
 </div>
-<%= form_for @payment, html: { class: "new-payment-submit" } do |f| %>
-  <div class="small-12 columns red-errors" id="new-payment-errors">
+<%= form_for @payment, html: { class: "new-payment-submit", id: "new_payment_#{bill_id}" } do |f| %>
+  <div class="small-12 columns red-errors" id="new-payment-errors-<%= bill_id %>">
   </div>
 
   <div class="small-12 columns">
@@ -17,20 +17,20 @@
   <div class="small-12 columns">
     <div class="small-12 columns">
       <%= f.label :amount, "Amount Paid" %>
-      <%= f.text_field :amount %>
+      <%= f.text_field :amount, id: "payment_amount_#{bill_id}" %>
     </div>
   </div>
 
   <div class="small-12 columns">
     <div class="small-12 columns">
       <%= f.label :description %>
-      <%= f.text_area :description %>
+      <%= f.text_area :description, id: "payment_description_#{bill_id}" %>
     </div>
   </div>
 
   <div class="small-12 small-centered columns">
     <div>
-      <%= f.submit "Submit", class: "close-reveal-modal button pill", id: "payment_submit"%>
+      <%= f.submit "Submit", class: "close-reveal-modal button pill", id: "payment_submit_#{bill_id}"%>
     </div>
   </div>
 <% end %>

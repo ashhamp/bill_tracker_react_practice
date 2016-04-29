@@ -1,4 +1,6 @@
-README
+#Defogger
+###By Ashley Hampson
+
 
 ![Build Status](https://codeship.com/projects/a2171c80-dcc9-0133-f4d3-0a7d4da1657a/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/ashhamp/bill_tracker.png)

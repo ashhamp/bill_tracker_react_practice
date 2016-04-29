@@ -8,7 +8,7 @@
 
 ###### Breakable Toy For Launch Academy Spring 2016
 
-Defogger is a bill tracking site. Enjoy the convenience of having all your bills and information in one place and have it keep track of due dates and payments. 
+Defogger is a bill tracking site. Enjoy the convenience of having all your bills and information in one place and track duedates and payments. 
 
 #### Use
 https://defogger.herokuapp.com/

@@ -13,7 +13,7 @@ Defogger is a bill tracking site. Enjoy the convenience of having all your bills
 ###### Local Setup
 In the command line:
 ```
-https://github.com/ashhamp/bill_tracker.git
+git clone https://github.com/ashhamp/bill_tracker.git
 cd bill_tracker
 bundle install
 rake db:create

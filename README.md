@@ -10,4 +10,17 @@
 
 Defogger is a bill tracking site. Enjoy the convenience of having all your bills and information in one place and have it keep track of due dates and payments. https://defogger.herokuapp.com/
 
+###### Local Setup
+In the command line:
+```
+https://github.com/ashhamp/bill_tracker.git
+cd bill_tracker
+bundle install
+rake db:create
+rake db:migrate
+rails s
+```
+
+
+
 

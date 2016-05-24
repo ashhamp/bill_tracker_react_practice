@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   resources :payments, only: [:create, :update, :destroy]
 
   get 'charts', to: 'charts#index'
+
+  namespace :api do
+    resources :bills, only: [:index]
+  end
 end

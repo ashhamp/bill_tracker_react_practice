@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :bills, only: [:index]
+    resources :payments, only: [:create]
   end
 end

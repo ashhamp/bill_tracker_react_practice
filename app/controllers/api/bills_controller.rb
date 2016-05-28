@@ -25,4 +25,6 @@ class Api::BillsController < ApplicationController
 
     render json: @bills_formatted
   end
+
+
 end

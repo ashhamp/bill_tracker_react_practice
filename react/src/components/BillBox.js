@@ -8,7 +8,7 @@ class BillBox extends Component {
 
     this.state = {
       bills: [],
-      selectedBill: []
+      selectedBill: {}
     };
   }
 
@@ -73,9 +73,9 @@ class BillBox extends Component {
 
   _addPayment(date, amount, description) {
 
-    const bill_id = this.state.selectedBill[0].id;
+    const bill_id = this.state.selectedBill.id;
     const payment = { bill_id, date, amount, description };
-
+debugger;
     $.ajax({
       method: 'POST',
       url: '/api/payments',
@@ -88,7 +88,7 @@ class BillBox extends Component {
         $('#new-payment-form-react').foundation('close');
 
         this.setState({
-          selectedBill: []
+          selectedBill: {}
         })
       })
     })
@@ -100,13 +100,8 @@ class BillBox extends Component {
 
   _selectBill(bill) {
 
-
     this.setState({
-      selectedBill: []
-    });
-    
-    this.setState({
-      selectedBill: this.state.selectedBill.concat([bill])
+      selectedBill: bill
     });
 
   }

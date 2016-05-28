@@ -60,12 +60,18 @@ class Bill extends Component {
             </div>
               {billUrl}
             <div className="small-4 columns payment-align">
-              <a href="#" className="payment-button" id={`paid-${id}`} data-open="new-payment-form-react">paid</a>
+              <a href="#" className="payment-button" id={`paid-${id}`} onClick={this._handleSelectBill.bind(this)} data-open="new-payment-form-react">paid</a>
             </div>
           </div>
         </div>
       </div>
     );
+  }
+
+  _handleSelectBill() {
+    const bill = this.props.bill;
+
+    this.props.selectBill(bill)
   }
 }
 
